@@ -11,7 +11,7 @@
 4. Display All the Details of first three students.
 	select top 3 * from Student
 
-5. Display Name & Enrollment no of first 30% Students who’s contact number ends with 7.
+5. Display Name & Enrollment no of first 30% Students whoâ€™s contact number ends with 7.
 	select top 30 percent name, enrollment from Student where ContactNo like '%7'
 
 6. Display Unique Semesters.
@@ -20,10 +20,10 @@
 7. Retrieve All the Students who have no Enrollment.
 	select * from student where enrollment is null
 
-8. Find All Students whose Name does not start with ‘V’.
+8. Find All Students whose Name does not start with â€˜Vâ€™.
 	select name from student where name not like 'v%'
 
-9. Find All Students in which Email Contains ‘3@G’ & Only Six Characters.
+9. Find All Students in which Email Contains â€˜3@Gâ€™ & Only Six Characters.
 	select name from student where email like '%3@g%' and email like'______'
 
 10. Find Out All the Students whose First Name Starts with F And third character must be R.
@@ -41,7 +41,7 @@
 14. Update Division to BCX-5 & Semester 5 whose Student Id Is 102.
 	update student set Divsion = 'BCX-5',sem = 5 where stuid = 102
 
-15. Change the Student’s Name to Firoz Sherasiya in which Email is Firoz.Me@Gmail.Com & Contact No is8885999922.
+15. Change the Studentâ€™s Name to Firoz Sherasiya in which Email is Firoz.Me@Gmail.Com & Contact No is8885999922.
 	update student set Email = 'Firoz.Me@Gmail.Com' ,ContactNo = '8885999922'  where  Name = 'Firoz Sherasiya'
 
 16. Add one more Column City Varchar (50) in Student Table.
@@ -57,4 +57,4 @@
 	select * into Student_New from student
 		
 20. Remove All the Data from Student Table Using Truncate.
-truncate table student
+	truncate table student

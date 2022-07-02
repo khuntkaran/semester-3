@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package my;
 class MatrixMultiply{
     int c=1;
     MatrixMultiply(MatrixSet m1,MatrixSet m2){

@@ -1,4 +1,4 @@
-
+package my;
 import java.util.*;
 class MatrixSet{
     int x,y;

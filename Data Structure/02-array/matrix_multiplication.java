@@ -1,26 +1,4 @@
 import java.util.Scanner;
-class MatrixSet{
-    int x,y;
-    int m[][];
-    Scanner sc = new Scanner(System.in);
-    public MatrixSet(){
-    
-        System.out.print("how many row in matrix = ");
-        x=sc.nextInt();
-        System.out.print("how many colum in matrix = ");
-        y=sc.nextInt();
-
-        m = new int[x][y];
-
-        for(int i = 0;i<x;i++){
-            for(int j = 0; j<y ; j++){
-                System.out.println("Enter the number["+(i+1)+"]["+(j+1)+"]");
-                m[i][j] = sc.nextInt();
-            }
-        }
-    }
-}
-
 class MatrixMultiply{
     int c=1;
     MatrixMultiply(MatrixSet m1,MatrixSet m2){

@@ -1,5 +1,3 @@
-create database Employee_Info_242
-
 --1. Display all the employees whose name starts with “m” and 4 th character is “h”.
 	select EName from Employee where ename like 'm__h%'
 

@@ -13,12 +13,8 @@
             <div class="text-center text-warning h1">StopWatch</div>
 
             <div class="text-center mt-5 mb-4">
-                <button id="startbtn" type="button" class="btn btn-success me-4" onclick="time()" value="start" style="width:100px;">
-                    Start
-                </button>
-                <button id="restartbtn" type="button" class="btn btn-danger" onclick="restarttime()" style="width:100px;">
-                    Restart
-                </button>
+                <button id="startbtn" onclick="time()" type="button" class="btn btn-success me-4" style="width:100px;">Start</button>
+                <button id="restartbtn" type="button" class="btn btn-danger" onclick="restarttime()" style="width:100px;">Restart</button>
             </div>
 
             <div class=" text-center text-secondary">
@@ -31,28 +27,23 @@
 
         <script>
             function time() {
-                var defaultvalue = document.getElementById('startbtn').value;
-                var setstart = 'start'
-                var setcontinue = 'continue'
-
-                if ((defaultvalue === setstart) || (defaultvalue === setcontinue)) {
-                    document.getElementById('startbtn').innerHTML = 'pause'
-                    document.getElementById('startbtn').value = 'pause'
+                var dv = document.getElementById('startbtn');
+                if ((dv.innerHTML == 'Start') || (dv.innerHTML == 'Continue')) {
+                    document.getElementById('startbtn').innerHTML = 'Pause';
                     myinterval = setInterval(startnewtime, 10);
                 }
                 else {
                     clearInterval(myinterval);
-                    document.getElementById('startbtn').innerHTML = 'continue'
-                    document.getElementById('startbtn').value = 'continue'
+                    document.getElementById('startbtn').innerHTML = 'Continue';
                 }
             }
 
             function startnewtime() {
                 if (document.getElementById('mssinput').value == 99) {
-                    document.getElementById('mssinput').value = 00
+                    document.getElementById('mssinput').value = 00;
                     if (document.getElementById('ssinput').value == 59) {
                         document.getElementById('mminput').value++;
-                        document.getElementById('ssinput').value = 00
+                        document.getElementById('ssinput').value = 00;
                     }
                     else{
                         document.getElementById('ssinput').value++;
@@ -65,14 +56,12 @@
             
             function restarttime() {
                 clearInterval(myinterval);
-                document.getElementById('startbtn').innerHTML = 'Start'
-                document.getElementById('startbtn').value = 'start'
-                document.getElementById('mssinput').value = '00'
-                document.getElementById('ssinput').value = '00'
-                document.getElementById('mminput').value = '00'
+                document.getElementById('startbtn').innerHTML = 'Start';
+                document.getElementById('mssinput').value = '00';
+                document.getElementById('ssinput').value = '00';
+                document.getElementById('mminput').value = '00';
             }
         </script>
-
+        
     </body>
-
 </html>

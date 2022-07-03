@@ -1,74 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Stopwatch</title>
-</head>
+    <head>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <title>StopWatch</title>
+    </head>
 
-<body>
-    <div class="container bg-dark my-5 py-5">
-        <div class="text-center text-warning h1">StopWatch</div>
+    <body>
+        <div class="container bg-dark my-5 py-5">
+            <div class="text-center text-warning h1">StopWatch</div>
 
-        <div class="text-center mt-5 mb-4">
-            <button id="startbtn" type="button" class="btn btn-success me-4" onclick="time()" value="start">
-                start
-            </button>
-            <button id="restartbtn" type="button" class="btn btn-danger" onclick="restarttime()">
-                Restart
-            </button>
+            <div class="text-center mt-5 mb-4">
+                <button id="startbtn" type="button" class="btn btn-success me-4" onclick="time()" value="start" style="width:100px;">
+                    Start
+                </button>
+                <button id="restartbtn" type="button" class="btn btn-danger" onclick="restarttime()" style="width:100px;">
+                    Restart
+                </button>
+            </div>
+
+            <div class=" text-center text-secondary">
+                <input type="text" size="3px" value="00" disabled id="mminput"> <span class="h3"> : </span>
+                <input type="text" size="3px" value="00" disabled id="ssinput"> <span class="h3"> : </span>
+                <input type="text" size="3px" value="00" disabled id="mssinput">
+            </div>
+
         </div>
 
-        <div class=" text-center text-secondary">
-            <input type="text" size="3px" value="00" disabled id="mminput"> <span class="h3"> : </span>
-            <input type="text" size="3px" value="00" disabled id="ssinput"> <span class="h3"> : </span>
-            <input type="text" size="3px" value="00" disabled id="mssinput">
-        </div>
+        <script>
+            function time() {
+                var defaultvalue = document.getElementById('startbtn').value;
+                var setstart = 'start'
+                var setcontinue = 'continue'
 
-    </div>
-
-    <script>
-        function time() {
-            var defaultvalue = document.getElementById('startbtn').value;
-            var setstart = 'start'
-            var setcontinue = 'continue'
-
-            if ((defaultvalue === setstart) || (defaultvalue === setcontinue)) {
-                document.getElementById('startbtn').innerHTML = 'pause'
-                document.getElementById('startbtn').value = 'pause'
-                myinterval = setInterval(startnewtime, 10);
-            }
-            else {
-                clearInterval(myinterval);
-                document.getElementById('startbtn').innerHTML = 'continue'
-                document.getElementById('startbtn').value = 'continue'
-            }
-        }
-
-        function startnewtime() {
-            if (document.getElementById('mssinput').value == 100) {
-                document.getElementById('mssinput').value = 00
-                if (document.getElementById('ssinput').value == 60) {
-                    document.getElementById('ssinput').value = 00
-                    document.getElementById('mminput').value++;
+                if ((defaultvalue === setstart) || (defaultvalue === setcontinue)) {
+                    document.getElementById('startbtn').innerHTML = 'pause'
+                    document.getElementById('startbtn').value = 'pause'
+                    myinterval = setInterval(startnewtime, 10);
                 }
-                document.getElementById('ssinput').value++;
+                else {
+                    clearInterval(myinterval);
+                    document.getElementById('startbtn').innerHTML = 'continue'
+                    document.getElementById('startbtn').value = 'continue'
+                }
             }
-            document.getElementById('mssinput').value++;
-        }
-        
-        function restarttime() {
-            clearInterval(myinterval);
-            document.getElementById('startbtn').innerHTML = 'start'
-            document.getElementById('startbtn').value = 'start'
-            document.getElementById('mssinput').value = '00'
-            document.getElementById('ssinput').value = '00'
-            document.getElementById('mminput').value = '00'
-        }
-    </script>
 
-</body>
+            function startnewtime() {
+                if (document.getElementById('mssinput').value == 99) {
+                    document.getElementById('mssinput').value = 00
+                    if (document.getElementById('ssinput').value == 59) {
+                        document.getElementById('mminput').value++;
+                        document.getElementById('ssinput').value = 00
+                    }
+                    else{
+                        document.getElementById('ssinput').value++;
+                    }
+                }
+                else{
+                    document.getElementById('mssinput').value++;
+                }
+            }
+            
+            function restarttime() {
+                clearInterval(myinterval);
+                document.getElementById('startbtn').innerHTML = 'Start'
+                document.getElementById('startbtn').value = 'start'
+                document.getElementById('mssinput').value = '00'
+                document.getElementById('ssinput').value = '00'
+                document.getElementById('mminput').value = '00'
+            }
+        </script>
+
+    </body>
 
 </html>

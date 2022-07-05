@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var st = "Darshan University"
+        document.write("String : "+st);
+    
+
+        //String Length...
+        document.write("<br/><br/>");
+        document.write("1) String length : "+st.length);      //Always consider Space!
+
+        //String Replace...
+        document.write("<br/><br/>");
+        replace = st.replace("University","Panchashil")
+        document.write("2) String Replace : "+replace);
+
+        //String subString...
+        document.write("<br/><br/>");
+        document.write("3) SubString : "+st.substring(3,11));
+
+        //String subStr...
+        document.write("<br/><br/>");
+        document.write("4) subStr : "+st.substr(3,11));
+
+        //String slice...
+        document.write("<br/><br/>");
+        document.write("5) stringSlice : "+st.slice(3,11));       
+
+        //String UpperCase...
+        document.write("<br/><br/>");
+        document.write("6) UpperString : "+st.toUpperCase());
+
+        //String LowerCase...
+        document.write("<br/><br/>");
+        document.write("7) LowerString : "+st.toLowerCase());
+
+        //String padEnd...
+        document.write("<br/><br/>");
+        document.write("8) String padEnd : "+st.padEnd(24," Morbi"));       //Add New String in End...
+
+        //String CharAt...
+        document.write("<br/><br/>");
+        document.write("9) String Position : "+st.charAt(8));
+
+        //String Split...
+        document.write("<br/><br/>");
+        document.write("10) String Split : "+st.split("" ));         //All Characture are coma"," Saperated...
+
+        //String IndexOf...
+        document.write("<br/><br/>");
+        document.write("11) String IndexOf = "+st.indexOf("i"));
+
+        //String lastIndexOf...
+        document.write("<br/><br/>");
+        document.write("12) String lastIndexOf = "+st.lastIndexOf("i"));
+
+    </script>
+</body>
+</html>

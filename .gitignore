@@ -2,3 +2,17 @@
 *.class
 *.xml
 *.iml
+Web Technology/04_react_js/package-lock.json
+Web Technology/04_react_js/package.json
+Web Technology/04_react_js/public/favicon.ico
+Web Technology/04_react_js/public/logo192.png
+Web Technology/04_react_js/public/logo512.png
+Web Technology/04_react_js/public/manifest.json
+Web Technology/04_react_js/public/robots.txt
+Web Technology/04_react_js/README.md
+Web Technology/04_react_js/src/App.css
+Web Technology/04_react_js/src/App.js
+Web Technology/04_react_js/src/App.test.js
+Web Technology/04_react_js/src/logo.svg
+Web Technology/04_react_js/src/reportWebVitals.js
+Web Technology/04_react_js/src/setupTests.js

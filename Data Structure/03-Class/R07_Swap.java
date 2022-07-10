@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Swap {
+public class R07_Swap {
     static int a=0,b=0;
 
     public static void main(String[] args) {

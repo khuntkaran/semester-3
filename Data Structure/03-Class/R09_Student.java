@@ -25,7 +25,7 @@ class Student_Detail{
         System.out.println("CPI :"+CPI);
     }
 }
-public class Student {
+public class R09_Student {
     public static void main(String[] args) {
         Student_Detail[] SD = new Student_Detail[5];
         for (int i=0;i<5;i++) {

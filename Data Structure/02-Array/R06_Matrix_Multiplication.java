@@ -37,7 +37,7 @@ class MatrixMultiply{
         }
     }
 }
-public class matrix_multiplication {
+public class R06_Matrix_Multiplication {
     public static void main(String[] args) {
         MatrixSet ms = new MatrixSet();
         MatrixSet ms2 = new MatrixSet();

@@ -23,7 +23,7 @@ class Employee_Detail{
         System.out.println("Salary :"+Salary);
     }
 }
-public class EmployeeDemo {
+public class R08_EmployeeDemo {
     public static void main(String[] args) {
         Employee_Detail ED = new Employee_Detail();
         ED.E_Detail_Get();

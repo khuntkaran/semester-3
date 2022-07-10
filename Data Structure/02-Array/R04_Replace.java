@@ -1,5 +1,5 @@
 import java.util.*;
-public class replace {
+public class R04_Replace {
     public static void main(String[] args) {
         int[] a;
         Scanner sc = new Scanner(System.in);

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Day {
+public class E02_Day {
     static int day,week,year;  //use static keyword
     static void countDay(){
         day = day + week*7;

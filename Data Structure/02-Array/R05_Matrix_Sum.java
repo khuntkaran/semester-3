@@ -56,7 +56,7 @@ class MatrixSum{
         }
     }
 }
-public class matrix_sum {
+public class R05_Matrix_Sum {
     public static void main(String[] args) {
         MatrixSet ms = new MatrixSet();
         MatrixSet ms2 = new MatrixSet();

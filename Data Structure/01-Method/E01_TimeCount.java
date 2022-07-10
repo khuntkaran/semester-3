@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TimeCount {
+public class E01_TimeCount {
     int hh,mm,ss;
     void countSecond(){
         while (ss>=3600){
@@ -15,7 +15,7 @@ public class TimeCount {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        TimeCount t1 = new TimeCount();
+        E01_TimeCount t1 = new E01_TimeCount();
         System.out.print("Enter second : ");
         t1.ss = sc.nextInt();
         t1.countSecond();

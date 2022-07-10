@@ -1,8 +1,8 @@
 import java.util.Scanner;
-public class Factorial2 {
+public class R02_Factorial2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Factorial2 ft = new Factorial2();
+        R02_Factorial2 ft = new R02_Factorial2();
         System.out.print("Enter number : ");
         System.out.println("factorial = "+ft.findFactorial(sc.nextInt()));
     }

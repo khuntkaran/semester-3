@@ -1,16 +1,15 @@
 import java.util.Scanner;
-
 public class R11_AiBi {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("enter string : ");
-        String st = sc.nextLine();
+        String input = sc.nextLine();
         int a=0,b=0;
-        for (int i =0 ; i<st.length();i++){
-            if(st.charAt(i) == 'a'){
+        for (int i =0 ; i<input.length();i++){
+            if(input.charAt(i) == 'a'){
                 a++;
             }
-            else if(st.charAt(i) == 'b'){
+            else if(input.charAt(i) == 'b'){
                 b++;
             }
             else{

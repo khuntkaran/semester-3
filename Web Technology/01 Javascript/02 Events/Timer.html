@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Timer</title>
+</head>
+<body>
+	Enter Time Duration : 
+	<input type="text" name="" id="timer"></br></br>
+	<input type="button" name="" value="start" onclick="startTimer()" id="strbtn">
+	<h1></h1>
+	<script type="text/javascript">
+		function printTime(){
+
+			temp=document.getElementById('timer').value
+			temp--;
+			if(temp>=0){
+				if (temp==0){
+					document.getElementById('strbtn').value="start"
+					clearInterval(my);
+					document.getElementsByTagName('h1')[0].innerHTML="time over"
+				}
+				document.getElementById('timer').value=temp;
+			}
+
+		}
+		function startTimer(){
+			if(document.getElementById('strbtn').value=="start"){
+				my=setInterval(printTime,1000)
+				document.getElementById('strbtn').value="pause"
+			}
+			else{
+				clearInterval(my);
+				document.getElementById('strbtn').value="start"
+			}
+
+		}
+	</script>
+</body>
+</html>

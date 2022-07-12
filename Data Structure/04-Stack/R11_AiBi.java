@@ -5,7 +5,7 @@ public class R11_AiBi {
 
     void push(char arg){
         Top++;
-        if(Top-1<20){
+        if(Top-1>19){
             System.out.println("stack oveflow");
             return;
         }

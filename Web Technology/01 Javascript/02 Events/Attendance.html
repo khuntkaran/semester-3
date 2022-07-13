@@ -12,7 +12,7 @@
 
     <div class="container border border-dark my-2 " style="background-color:#37ca99 ;" >
         <div class="row border border-dark p-2 m-2 " style="background-color:#9bc142 ;">
-            <p class="row border border-dark m-0 " style="background-color:#c17b42 ;" id="classa">A : </p>
+            <div class="row border border-dark m-0" style="background-color:#c17b42 ;" id="classa">A : </div>
             <div class="row border border-dark m-0 mt-2" style="background-color:#c17b42 ;" id="classb">B : </div>
             <div class="row border border-dark m-0 mt-2" style="background-color:#c17b42 ;" id="classc">C : </div>
         </div>
@@ -63,7 +63,6 @@
                 var allinput = document.getElementsByTagName('input')
                 for(i=0;i<allinput.length;i++){
                     allinput[i].checked=false;
-                    AB(allinput[i])
                 }
             }
             else{
@@ -71,31 +70,31 @@
                 var allinput = document.getElementsByTagName('input')
                 for(i=0;i<allinput.length;i++){
                     allinput[i].checked=true;
-                    AB(allinput[i])
                 }
             }
+            AB();
         }
-        function AB(notpresent){
-            if(notpresent.checked==false){
-                if(notpresent.name=='a'){
-                    document.getElementById('classa').innerHTML+=notpresent.value + ','
+        function AB(){
+            var abc = document.getElementsByTagName('input');
+            document.getElementById('classa').innerHTML='A : '
+            document.getElementById('classb').innerHTML='B : '
+            document.getElementById('classc').innerHTML='C : '
+            
+            for(i=0;i<abc.length;i++){
+                if(abc[i].name=='a'){
+                    if(abc[i].checked==false){
+                        document.getElementById('classa').innerHTML+=abc[i].value + ','
+                    }
                 }
-                else if(notpresent.name=='b'){
-                    document.getElementById('classb').innerHTML+=notpresent.value + ','
+                else if(abc[i].name=='b'){
+                    if(abc[i].checked==false){
+                        document.getElementById('classb').innerHTML+=abc[i].value + ','
+                    }
                 }
-                else if (notpresent.name=='c'){
-                    document.getElementById('classc').innerHTML+=notpresent.value + ','
-                }
-            }
-            else{
-                if(notpresent.name=='a'){
-                    document.getElementById('classa').innerHTML += notpresent.value 
-                }
-                else if(notpresent.name=='b'){
-                    document.getElementById('classb').innerHTML -= notpresent.value
-                }
-                else if (notpresent.name=='c'){
-                    document.getElementById('classc').innerHTML -= notpresent.value
+                else if(abc[i].name=='c'){
+                    if(abc[i].checked==false){
+                        document.getElementById('classc').innerHTML+=abc[i].value + ','
+                    }
                 }
             }
         }

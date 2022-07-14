@@ -79,24 +79,27 @@
             document.getElementById('classa').innerHTML='A : '
             document.getElementById('classb').innerHTML='B : '
             document.getElementById('classc').innerHTML='C : '
-            
+            a='';b='';c='';
             for(i=0;i<abc.length;i++){
                 if(abc[i].name=='a'){
                     if(abc[i].checked==false){
-                        document.getElementById('classa').innerHTML+=abc[i].value + ','
+                        a+=abc[i].value + ', '
                     }
                 }
                 else if(abc[i].name=='b'){
                     if(abc[i].checked==false){
-                        document.getElementById('classb').innerHTML+=abc[i].value + ','
+                        b+=abc[i].value + ', '
                     }
                 }
                 else if(abc[i].name=='c'){
                     if(abc[i].checked==false){
-                        document.getElementById('classc').innerHTML+=abc[i].value + ','
+                        c+=abc[i].value + ', '
                     }
                 }
             }
+            document.getElementById('classa').innerHTML='A : '+a.substring(0,a.length-2);
+            document.getElementById('classb').innerHTML='B : '+b.substring(0,b.length-2);
+            document.getElementById('classc').innerHTML='C : '+c.substring(0,c.length-2);
         }
     </script>
 </body>

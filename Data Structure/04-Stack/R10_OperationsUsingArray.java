@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class R10_OperationsUsingArray {
     int[] stack = new int[10];
     int Top = -1;
-    static Scanner sc = new Scanner(System.in);
     void push(int x){
         if(Top>=9){
             System.out.println("stack overflow");
@@ -42,7 +41,7 @@ public class R10_OperationsUsingArray {
         System.out.println("]");
     }
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
         R10_OperationsUsingArray oua = new R10_OperationsUsingArray();
         boolean flag = true;
         while (flag){

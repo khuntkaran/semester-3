@@ -1,3 +1,27 @@
+Create Table Employee(
+	EID int,
+	EName varchar(100),
+	Gender varchar(10),
+	JoiningDate datetime,
+	Salary decimal(8,2),
+	City varchar(100)
+)
+
+
+
+Insert into Employee Values (1, 'Nick', 'Male', '01-Jan-13', 4000, 'London')
+Insert into Employee Values (2, 'Julian', 'Female', '01-Oct-14', 3000, 'New York')
+Insert into Employee Values (3, 'Roy', 'Male', '01-Jun-16', 3500, 'London')
+Insert into Employee Values (4, 'Tom', 'Male', Null, 4500, 'London')
+Insert into Employee Values (5, 'Jerry', 'Male', '01-Feb-13', 2800, 'Sydney')
+Insert into Employee Values (6, 'Philip', 'Male', '01-Jan-15', 7000, 'New York')
+Insert into Employee Values (7, 'Sara', 'Female', '01-Aug-17', 4800, 'Sydney')
+Insert into Employee Values (8, 'Emily', 'Female', '01-Jan-15', 5500, 'New York')
+Insert into Employee Values (9, 'Michale', 'Male', Null, 6500, 'London')
+Insert into Employee Values (10, 'John', 'Male', '01-Jan-15', 8800, 'London')
+
+
+
 --1. Display all the employees whose name starts with “m” and 4 th character is “h”.
 	select EName from Employee where ename like 'm__h%'
 

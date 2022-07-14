@@ -1,5 +1,27 @@
 create database sem-3-i
 
+Create Table Student(
+	StuID			int,
+	Name			varchar(100),
+	EnrollmentNo	varchar(12),
+	Division		varchar(50),
+	Sem				int,
+	BirthDate		datetime,
+	Email			varchar(100),
+	ContactNo		varchar(50)
+);
+
+
+
+
+
+Insert into Student Values (101, 'Naimish Patel', '090200107051', 'BCX-3', 3, '1992-12-06', 'naimishpatel49@gmail.com', '8866205253')
+Insert into Student Values (102, 'Firoz A. S.', '090200107090', 'BCY-3', 3, '1994-05-03', 'firoz.me@gmail.com', '8885999922')
+Insert into Student Values (103, 'Krunal Vyas', '090243107101', 'BCZ-5', 5, '1984-03-01', 'krunal.vyas@gmail.com', '9990888877')
+Insert into Student Values (104, 'Vijay Patel', '090200107102', 'BCX-5', 5, '1985-02-15', 'vijay.patel123@gmail.com', '8787878787')
+Insert into Student Values (105, 'Vimal Trivedi', '090200107103', 'BCY-3', 3, '1988-01-20', 'maulik123@gmail.com', '8789564512')
+
+
 
 /*1. Display Name of Student who belongs to either Semester 3 or 5. (Use IN & OR)*/
 	select Name from Student where Sem in(3,5)

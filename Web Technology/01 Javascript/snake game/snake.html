@@ -17,54 +17,55 @@
     </style>
 </head>
 <body  onkeydown="runsnake()">
-
+    
+    <div style="border:3px solid black ;width:80%; height:80vh;"></div>
     <img src="snakeimg.gif" class="snakeimg" id="snakeid">
 
     <script>
         var snakepose = document.getElementById("snakeid");
         let rightpose=180;
+        let toppose=180;
+        let temp="";
         function runsnake(){
-        
+            
             document.onkeydown = function(e) {
-            switch (e.keyCode) {
-                case 37:
-                    // str = 'Left Key pressed!';
-                    leftwalk = setInterval(runleft,10);
-                    break;
-                case 38:
-                    // str = 'Up Key pressed!';
-                    alert("Up")
-                    break;
-                case 39:
-                    // str = 'Right Key pressed!';
-                   
-                   rightwalk = setInterval(runright,10);
-                   
-                    break;
-                case 40:
-                    // str = 'Down Key pressed!';
-                    alert("Down")
-                    break;
+               
+                clearInterval(temp)
+                switch (e.keyCode) {
+                    case 37:
+                        leftwalk = setInterval(runleft,10)
+                        temp= leftwalk
+                        break;
+                    case 38:
+                        upwalk = setInterval(runtop,10);
+                        temp=upwalk
+                        break;
+                    case 39:
+                        rightwalk = setInterval(runright,10)
+                        temp=rightwalk
+                        break;
+                    case 40:
+                        downwalk = setInterval(rundown,10)
+                        temp=downwalk
+                        break;
+                }
             }
         }
-        }
         function runright(){
-            clearInterval(leftwalk);
             rightpose++;
             snakepose.style.left= rightpose+'px'
         }
         function runleft(){
-            clearInterval(rightwalk)
             rightpose--;
             snakepose.style.left= rightpose+'px'
         }
-        function runright(){
-            rightpose++;
-            snakepose.style.left= rightpose+'px'
+        function runtop(){
+            toppose--;
+            snakepose.style.top= toppose+'px'
         }
-        function runright(){
-            rightpose++;
-            snakepose.style.left= rightpose+'px'
+        function rundown(){
+            toppose++;
+            snakepose.style.top= toppose+'px'
         }
         
     </script>

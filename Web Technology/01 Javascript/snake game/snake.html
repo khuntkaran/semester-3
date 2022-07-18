@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake</title>
+    <style>
+        .snakeimg{
+            position: absolute;
+            top: 180px;
+            left: 180px;
+            width: 100px;
+            height: 100px;
+            border: 3px solid #73AD21;
+        }
+    </style>
+</head>
+<body  onkeydown="runsnake()">
+
+    <img src="snakeimg.gif" class="snakeimg" id="snakeid">
+
+    <script>
+        var snakepose = document.getElementById("snakeid");
+        let rightpose=180;
+        function runsnake(){
+        
+            document.onkeydown = function(e) {
+            switch (e.keyCode) {
+                case 37:
+                    // str = 'Left Key pressed!';
+                    leftwalk = setInterval(runleft,10);
+                    break;
+                case 38:
+                    // str = 'Up Key pressed!';
+                    alert("Up")
+                    break;
+                case 39:
+                    // str = 'Right Key pressed!';
+                   
+                   rightwalk = setInterval(runright,10);
+                   
+                    break;
+                case 40:
+                    // str = 'Down Key pressed!';
+                    alert("Down")
+                    break;
+            }
+        }
+        }
+        function runright(){
+            clearInterval(leftwalk);
+            rightpose++;
+            snakepose.style.left= rightpose+'px'
+        }
+        function runleft(){
+            clearInterval(rightwalk)
+            rightpose--;
+            snakepose.style.left= rightpose+'px'
+        }
+        function runright(){
+            rightpose++;
+            snakepose.style.left= rightpose+'px'
+        }
+        function runright(){
+            rightpose++;
+            snakepose.style.left= rightpose+'px'
+        }
+        
+    </script>
+</body>
+</html>

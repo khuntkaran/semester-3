@@ -19,8 +19,9 @@
 <body  onkeydown="runsnake()">
 
 
-    <div style="border:5px solid black ; margin: 0px; padding: 0%;" id="maincontainer"></div>
+    <div style="border:5px solid black ; position: absolute; top: 0px; left: 0px;" id="maincontainer"></div>
     <img src="snakeimg.gif" class="snakeimg" id="snakeid">
+    <img src="snakefood.png" style="position: absolute;width: 20px;height: 20px;" id="food">
 
     <script>
         var snakepose = document.getElementById("snakeid");
@@ -32,6 +33,9 @@
         contain.width=(screen.width)*0.75+'px'
         contain.height=(screen.height)*0.60+'px'
 
+        foodposs = document.getElementById("food").style;
+        foodposs.left =(Math.random())*((screen.width)*0.75)+'px'
+        foodposs.top =(Math.random())*((screen.height)*0.60)+'px'
 
         function runsnake(){
            
@@ -62,18 +66,34 @@
         function runright(){
             rightpose++;
             snakepose.style.left= rightpose+'px'
+            if(rightpose+100>=(screen.width)*0.75){
+                alert("game over")
+                clearInterval(temp)
+            }
         }
         function runleft(){
             rightpose--;
             snakepose.style.left= rightpose+'px'
+            if(rightpose<=0){
+                alert("game over")
+                clearInterval(temp)
+            }
         }
         function runtop(){
             toppose--;
             snakepose.style.top= toppose+'px'
+            if(toppose<=0){
+                alert("game over")
+                clearInterval(temp)
+            }
         }
         function rundown(){
             toppose++;
             snakepose.style.top= toppose+'px'
+            if(toppose+100>=(screen.height)*0.60){
+                alert("game over")
+                clearInterval(temp)
+            }
         }
         
     </script>

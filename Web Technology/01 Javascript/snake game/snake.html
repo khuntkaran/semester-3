@@ -17,7 +17,9 @@
     </style>
 </head>
 <body  onkeydown="runsnake()">
-    <div style="border:3px solid black ;" id="maincontainer"></div>
+
+
+    <div style="border:5px solid black ; margin: 0px; padding: 0%;" id="maincontainer"></div>
     <img src="snakeimg.gif" class="snakeimg" id="snakeid">
 
     <script>
@@ -25,14 +27,14 @@
         let rightpose=180;
         let toppose=180;
         let temp="";
-        var containwidth=(screen.width)*0.75
-        var containheight=(screen.height)*0.60
+        
         contain = document.getElementById("maincontainer").style;
-        contain.border='5px solid red'
-        contain.width=containwidth+'px'
-        contain.height=containheight+'px'
+        contain.width=(screen.width)*0.75+'px'
+        contain.height=(screen.height)*0.60+'px'
+
+
         function runsnake(){
-            alert(screen.width)
+           
             document.onkeydown = function(e) {
                
                 clearInterval(temp)
@@ -56,6 +58,7 @@
                 }
             }
         }
+
         function runright(){
             rightpose++;
             snakepose.style.left= rightpose+'px'

@@ -31,7 +31,7 @@
             var pw = document.getElementById('password');
             var pattern1 ='^[a-zA-Z0-9]{5,}@darshan.ac.in$'
             var regex1 = new RegExp(pattern1);
-            var pattern2 ='^[\w]'
+            var pattern2 ='^[\\w]'
             var regex2 = new RegExp(pattern2);
             if(regex1.test(un.value) && regex2.test(pw.value)){
                 document.write("<h1>login successful!!</h1>");

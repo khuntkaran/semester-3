@@ -8,8 +8,7 @@
     <style>
         .snakeimg{
             position: absolute;
-            top: 180px;
-            left: 180px;
+            
             width: 100px;
             height: 100px;
             border: 3px solid #73AD21;
@@ -25,18 +24,29 @@
 
     <script>
         var snakepose = document.getElementById("snakeid");
-        let rightpose=180;
-        let toppose=180;
+        let rightpose=(Math.random())*((screen.width)*0.65);
+        let toppose=(Math.random())*((screen.height)*0.50);
         let temp="";
         
         contain = document.getElementById("maincontainer").style;
         contain.width=(screen.width)*0.75+'px'
         contain.height=(screen.height)*0.60+'px'
 
+        let foodleft=(Math.random())*((screen.width)*0.73)
+        let foodtop=(Math.random())*((screen.height)*0.58)
         foodposs = document.getElementById("food").style;
-        foodposs.left =(Math.random())*((screen.width)*0.75)+'px'
-        foodposs.top =(Math.random())*((screen.height)*0.60)+'px'
+        foodposs.left =foodleft+'px'
+        foodposs.top =foodtop+'px'
 
+        snakepose.style.left =rightpose+'px'
+        snakepose.style.top =toppose+'px'
+
+        function foodposechange(){
+            foodleft=(Math.random())*((screen.width)*0.73)
+            foodtop=(Math.random())*((screen.height)*0.58)
+            foodposs.left =foodleft+'px'
+            foodposs.top =foodtop+'px'
+        }
         function runsnake(){
            
             document.onkeydown = function(e) {
@@ -66,6 +76,13 @@
         function runright(){
             rightpose++;
             snakepose.style.left= rightpose+'px'
+            console.log('foodleft' + parseInt(foodleft))
+            console.log('rightpose+100' +(parseInt(rightpose)+100))
+            console.log('parseInt(foodtop)'+parseInt(foodtop))
+            console.log('(parseInt(toppose)+100)'+(parseInt(toppose)+100))
+            if(parseInt(foodleft)==(parseInt(rightpose)+100) && parseInt(foodtop)==(parseInt(toppose))){
+                foodposechange()
+            }
             if(rightpose+100>=(screen.width)*0.75){
                 alert("game over")
                 clearInterval(temp)
@@ -74,6 +91,9 @@
         function runleft(){
             rightpose--;
             snakepose.style.left= rightpose+'px'
+            if(parseInt(foodleft)==(parseInt(rightpose)) && parseInt(foodtop)==(parseInt(toppose))){
+                foodposechange()
+            }
             if(rightpose<=0){
                 alert("game over")
                 clearInterval(temp)

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+</head>
+<body  onkeydown="runsnake()">
+    
+    <div style="border:5px solid black ; position: absolute; top: 0px; left: 0px;" id="maincontainer"></div>
+    <img src="snakeimg.gif" style=" position: absolute;width: 100px;height: 100px;border: 3px solid #73AD21;"id="snakeid">
+    <img src="snakefood.png" style="position: absolute;width: 20px;height: 20px;" id="food">
+    <div id="scoreboard" style="position: absolute;" ><h1>score : </h1><h2 id="scorecount">0</h2></div>
+    <div id="lifeboard" style="position: absolute;" ><h1>life : </h1><h2 id="lifecount">3</h2></div>
+
+    <script>
+        let temp="", scorecounter=0, lifecounter=3;
+        document.getElementById('scoreboard').style.top=(screen.height)*0.60+'px';
+        document.getElementById('lifeboard').style.top=(screen.height)*0.60+'px';
+        document.getElementById('lifeboard').style.left=(screen.width)*0.50+'px';
+
+        let contain = document.getElementById("maincontainer").style;
+        contain.width=(screen.width)*0.75+'px';
+        contain.height=(screen.height)*0.60+'px';;
+
+        let foodposs = document.getElementById("food").style;
+        let foodleft=(Math.random())*((screen.width)*0.73);
+        let foodtop=(Math.random())*((screen.height)*0.58);
+        foodposs.left =foodleft+'px';
+        foodposs.top =foodtop+'px';
+
+        let snakepose = document.getElementById("snakeid");
+        let rightpose=(Math.random())*((screen.width)*0.50);
+        let toppose=(Math.random())*((screen.height)*0.40);
+        snakepose.style.left =rightpose+'px';
+        snakepose.style.top =toppose+'px';
+
+        function foodposechange(){
+            foodleft=(Math.random())*((screen.width)*0.73);
+            foodtop=(Math.random())*((screen.height)*0.58);
+            foodposs.left =foodleft+'px';
+            foodposs.top =foodtop+'px';
+            scorecounter++;
+            document.getElementById('scorecount').innerHTML=scorecounter;
+        }
+
+        function life(){
+            clearInterval(temp)
+            lifecounter--;
+            if(lifecounter<1){
+                document.write('<h1>GameOver<h1> <h2>Your Score : '+scorecounter+'<h2>')
+            }
+            document.getElementById('lifecount').innerHTML=lifecounter;
+        }
+
+        function runsnake(){
+           
+            document.onkeydown = function(e) {
+                clearInterval(temp)
+                switch (e.keyCode) {
+                    case 37:
+                        leftwalk = setInterval(runleft,10)
+                        temp= leftwalk
+                        break;
+                    case 38:
+                        upwalk = setInterval(runtop,10);
+                        temp=upwalk
+                        break;
+                    case 39:
+                        rightwalk = setInterval(runright,10)
+                        temp=rightwalk
+                        break;
+                    case 40:
+                        downwalk = setInterval(rundown,10)
+                        temp=downwalk
+                        break;
+                }
+            }
+        }
+
+        function runright(){
+            rightpose++;
+            snakepose.style.left= rightpose+'px'
+            if(parseInt(foodleft)==(parseInt(rightpose)+100)){
+                if(parseInt(foodtop)-parseInt(toppose)>-20 &&parseInt(foodtop)-parseInt(toppose)<101){
+                    foodposechange()
+                }
+            }
+            if(rightpose+100>=(screen.width)*0.75){
+                life();
+            }
+        }
+
+        function runleft(){
+            rightpose--;
+            snakepose.style.left= rightpose+'px'
+            if(parseInt(foodleft)+20==(parseInt(rightpose))){
+                if(parseInt(foodtop)-parseInt(toppose)>-20 &&parseInt(foodtop)-parseInt(toppose)<101){
+                    foodposechange()
+                }
+            }
+            if(rightpose<=0){
+                life();
+            }
+        }
+
+        function runtop(){
+            toppose--;
+            snakepose.style.top= toppose+'px'
+            if(parseInt(foodtop)+20==(parseInt(toppose))){
+                if(parseInt(foodleft)-parseInt(rightpose)>=-20 &&parseInt(foodleft)-parseInt(rightpose)<101){
+                    foodposechange()
+                }
+            }
+            if(toppose<=0){
+                life();
+            }
+        }
+
+        function rundown(){
+            toppose++;
+            snakepose.style.top= toppose+'px'
+            if(parseInt(foodtop)==(parseInt(toppose))+100){
+                if(parseInt(foodleft)-parseInt(rightpose)>=-20 &&parseInt(foodleft)-parseInt(rightpose)<101){
+                    foodposechange()
+                }
+            }
+            if(toppose+100>=(screen.height)*0.60){
+                life();
+            }
+        }
+    </script>
+</body>
+</html>

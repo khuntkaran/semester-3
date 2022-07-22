@@ -35,3 +35,87 @@ Insert into Person Values ('Neha Sharma', 2, 34000, '2002-12-25', 'Rajkot')
 Insert into Person Values ('Nayan Goswami', 3, 25000, '2001-07-01', 'Rajkot')
 Insert into Person Values ('Mehul Bhundiya', 4, 13500, '2005-09-01', 'Baroda')
 Insert into Person Values ('Mohit Maru', 5, 14000, '2000-05-25', 'Jamnagar')
+
+
+
+1.	select Person.PersonName,Department.DepartmentName,Department.DepartmentCode
+	from Person
+	left outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+
+2.	select Department.DepartmentName,max(Salary),min(salary)
+	from Person
+	right outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	group by Department.DepartmentName
+
+3.	select Department.DepartmentName,sum(salary)
+	from Person
+	right outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	group by Department.DepartmentName
+	having sum(Salary)>100000
+
+4.	select Person.PersonName,Department.DepartmentName,Person.Salary
+	from Person
+	left outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	where Person.City ='jamnagar'
+
+5.	select Person.PersonName
+	from Person
+	left outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	where Person.DepartmentID is null
+
+6.	select Department.DepartmentName,COUNT(Person.PersonID)
+	from Person
+	right outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	group by Department.DepartmentName
+
+7.	select Person.City,avg(Person.Salary)
+	from Person
+	left outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	where Person.City ='Ahmedabad'
+	group by City
+
+8.	select Person.PersonName+' earns '+cast(Person.Salary as varchar)+' from department '+Department.DepartmentName+' monthly.'
+	from Person
+	left outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+
+9.	select Department.DepartmentName,count(Person.PersonID)
+	from Person
+	right outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	group by Department.DepartmentName
+	having count(Person.PersonID)<1
+
+10.	select Department.DepartmentName,Person.City,avg(Salary),max(Salary),min(salary)
+	from Person
+	right outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	group by Department.DepartmentName,Person.City
+
+11.	select distinct(city) from Person
+
+12.	select Department.DepartmentName,count(Person.PersonID)
+	from Person
+	right outer join Department
+	on Person.DepartmentID=Department.DepartmentId
+	group by Department.DepartmentName
+	having count(Person.PersonID)>2
+
+13.	select SUBSTRING(PersonName,1,3)+SUBSTRING(city,len(city)-2,len(City)) from Person
+
+14.	select PersonName,Department.DepartmentName,Salary+Salary*.10
+	from Person
+	inner join Department
+	on Person.DepartmentID=Department.DepartmentId
+	where DepartmentName='Computer'
+
+15.	select PersonName
+	from Person
+	where DATEDIFF(day,JoiningDate,GETDATE())>365

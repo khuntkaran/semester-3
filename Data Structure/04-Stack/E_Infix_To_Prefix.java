@@ -1,3 +1,4 @@
+package Precedence;
 import java.util.Scanner;
 
 public class E_Infix_To_Prefix {
@@ -14,7 +15,7 @@ public class E_Infix_To_Prefix {
             else if(infix.charAt(i-1)==')'){ ninfix+='(';}
             else {ninfix+=infix.charAt(i-1);}
         }
-        
+
         ninfix=ItoP2.checkString(ninfix+')');
 
         infix="";

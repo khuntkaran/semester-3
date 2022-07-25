@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class R10_OperationsUsingArray {
-    int[] stack = new int[10];
+    Object[] stack = new Object[10];
     int Top = -1;
-    void push(int x){
+    void push(Object x){
         if(Top>=9){
             System.out.println("stack overflow");
             return;
@@ -11,7 +11,7 @@ public class R10_OperationsUsingArray {
         Top++;
         stack[Top] = x;
     }
-    int pop(){
+    Object pop(){
         if(Top<0){
             System.out.print("stack underflow ");
             return 0;
@@ -19,14 +19,14 @@ public class R10_OperationsUsingArray {
         Top--;
         return stack[Top+1];
     }
-    int peep(int i){
+    Object peep(int i){
         if(Top-i+1<0){
             System.out.println("stack underflow");
             return 0;
         }
         return stack[Top-i+1];
     }
-    void change(int x,int i){
+    void change(Object x,int i){
         if(Top-i+1<0){
             System.out.println("stack underflow");
             return;
@@ -50,7 +50,7 @@ public class R10_OperationsUsingArray {
             switch (y){
                 case 1 :
                     System.out.print("enter element : ");
-                    oua.push(sc.nextInt());
+                    oua.push(sc.next());
                     break;
                 case 2 :
                     System.out.println("remove last element : "+oua.pop());
@@ -64,7 +64,7 @@ public class R10_OperationsUsingArray {
                     System.out.print("which element change from Top in stack : ");
                     int i2 = sc.nextInt();
                     System.out.print("new element is : ");
-                    int x = sc.nextInt();
+                    Object x = sc.next();
                     oua.change(x,i2);
                     break;
                 case 5 :

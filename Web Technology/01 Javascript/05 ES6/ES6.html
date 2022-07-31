@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        let a = confirm("are you not robot???");
+        if(a==true){
+            //--student is array with 3 object
+            const student = [
+                {name: "karan",age:18,spi:9.5},
+                {name: "raj",age:25,spi:8.4},
+                {name: "jay",age:19,spi:7.5}
+            ];
+            temp = document.getElementById("main");
+        
+            //--find
+            const find = student.find((stu)=>{
+                if(stu.spi>8){
+                    return true;
+                }
+            })
+            temp.innerHTML+= "<h1>find</h1>"+ find.name+" "+find.age+" "+find.spi+"<br><hr>";
+
+            //--some
+            const some = student.some((stu)=>{
+                if(stu.spi>8){
+                    return true;
+                }
+            })
+            temp.innerHTML+="<h1>some</h1>"+some+"<br><hr>";
+
+            //--every
+            const every = student.every((stu)=>{
+                if(stu.spi>8){
+                    return true;
+                }
+            })
+            temp.innerHTML+="<h1>every</h1>"+every+"<br><hr>";
+
+            //--filter
+            const filter = student.filter((stu)=>{
+                if(stu.spi>8){
+                    return true;
+                }
+            })
+            temp.innerHTML+="<h1>filter</h1>"+ filter[0].name+" "+filter[0].age+" "+filter[0].spi +"  "+ filter[1].name+" "+filter[1].age+" "+filter[1].spi+"<br>";
+            const filter_with_map = filter.map((stu)=>{
+            return "<li>"+stu.name+" "+stu.spi+"<li>";
+            })
+            temp.innerHTML+="<h3>filter with map</h3>"+ "<ul>"+filter_with_map+"</ul><br><hr>";
+
+            //--map
+            const map = student.map((stu)=>{
+            return "<li>"+stu.name+" "+stu.spi+"<li>";
+            })
+            temp.innerHTML+="<h1>map</h1>"+ "<ul>"+map+"</ul><br><hr>";
+
+            //--forEach
+            temp.innerHTML+="<h1>forEach</h1> "
+            student.forEach((stu)=>{
+                temp.innerHTML+= stu.name+"  "+stu.spi+"<br>";
+            })
+            temp.innerHTML+="<hr> "
+
+            //--include
+            const include1 = student[0].name.includes("karan");
+            const include2 = student[0].name.includes("karan2");
+            temp.innerHTML+="<h1>include</h1>"+ include1+"<br>"+include2+"<br><hr>";
+
+            //--array
+            temp.innerHTML+= "<h1>array</h1>"
+            let array = ["karan"];                      //array initialize ["karan"]
+            temp.innerHTML+="array initialize ['karan'] ="+" " +  array+"<br>";
+            array = [...array,"raj"];                   //add element with [...array,"raj"]
+            temp.innerHTML+= "add element with [...array,'raj'] = "+ " "+array+"<br>";
+            array = ["jay",...array];                   //add element with ["jay",...array]
+            temp.innerHTML+="add element with ['jay',...array] = "+" "+ array+"<br>";
+            temp.innerHTML+= "<hr>"
+        }
+    </script>
+</body>
+</html>

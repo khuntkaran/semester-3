@@ -1,3 +1,4 @@
+package stackoperations;
 import java.util.Scanner;
 
 public class R10_OperationsUsingArray {

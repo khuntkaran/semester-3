@@ -1,12 +1,8 @@
 package stackoperations;
 import java.util.Scanner;
 public class R13_Postfix_Evaluation{
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    void Evaluate(String postfix){
         R10_OperationsUsingArray kp = new R10_OperationsUsingArray();
-        System.out.println("enter string");
-        String postfix = sc.next();
-        
         for(int i=0;i<postfix.length();i++){
             char temp = postfix.charAt(i);
             
@@ -43,5 +39,13 @@ public class R13_Postfix_Evaluation{
             }
         }
         System.out.println(kp.pop());
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       
+        System.out.println("enter string");
+        String postfix = sc.next();
+        R13_Postfix_Evaluation PE= new R13_Postfix_Evaluation();
+       PE.Evaluate(postfix);
     }
 }

@@ -1,7 +1,7 @@
 package Precedence;
 import java.util.Scanner;
 
-public class E_Infix_To_Prefix {
+public class R13_ii_Infix_To_Prefix {
     public static void main(String[] args) {
         R12_Infix_To_Postfix ItoP2 = new R12_Infix_To_Postfix();
         Scanner sc = new Scanner(System.in);

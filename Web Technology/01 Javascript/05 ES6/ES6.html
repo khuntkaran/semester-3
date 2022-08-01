@@ -66,6 +66,11 @@
             student.forEach((stu)=>{
                 temp.innerHTML+= stu.name+"  "+stu.spi+"<br>";
             })
+            sum=""
+            for(let stu2 of student){
+            sum+="<li>"+stu2.name+" "+stu2.spi+"<li>";
+            }
+            temp.innerHTML+="<ui>"+sum+"</ui>"
             temp.innerHTML+="<hr> "
 
             //--include

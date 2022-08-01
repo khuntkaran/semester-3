@@ -35,10 +35,6 @@ public class R11_AiBi {
             else if(input.charAt(i) == 'b'){
                 b1.push('b');
             }
-            else{
-                System.out.println("invalid string");
-                return;
-            }
         }
 
         if(a1.Top==b1.Top){

@@ -1,17 +1,33 @@
-import java.util.Scanner;
-public class R15_Simple_Queue{
-    Object[] Queue = new Object[20];
+import java.util.*;
+public class R16_Circular_Queue {
+    Object[] Queue = new Object[6];
     int front=-1;
     int rear=-1;
+    int reset =0;
     void insert(Object y){
-        if(rear>=19){
-            System.out.println("Queue overflow");
+        if(rear==5){
+            int temp=rear;
+            rear=0;
+           if(front!=0){
+                rear=-1;
+           }
+           else{
+            rear=temp;
+            System.out.println("queue overflow");
+            return;
+           }
+           reset=1;
+        } 
+        
+        rear++;
+        if(front==rear){
+            System.out.println("queue overflow");
             return;
         }
-        rear++;
         Queue[rear]=y;
         if(front==-1){
             front=0;
+            System.out.println("hii");
         }
     }
     Object delete(){
@@ -23,6 +39,11 @@ public class R15_Simple_Queue{
         if(front==rear){
             front=-1;
             rear=-1;
+            System.out.println("iam -1");
+            reset=-1;
+        }
+        if(front==5){
+            front=0;
         }
         else {
             front++;
@@ -31,17 +52,20 @@ public class R15_Simple_Queue{
     }
     void display(){
         if(front==-1){
-            System.out.println("empty queue");
+            System.out.println(front+"empty queue");
             return;
         }
         System.out.print("[");
-        for(int i=front;i-1!=rear;i++){
+        for(int i=front;i!=rear;i++){
             System.out.print(Queue[i]+",");
+            if(i==5&& front!=0){
+                i=-1;
+            }
         }
         System.out.println("]");
     }
     public static void main(String[] args) {
-        R15_Simple_Queue sq = new R15_Simple_Queue();
+        R16_Circular_Queue cq = new R16_Circular_Queue();
         Scanner sc = new Scanner(System.in);
       
         boolean flag = true;
@@ -51,14 +75,14 @@ public class R15_Simple_Queue{
             switch (y){
                 case 1 :
                     System.out.print("enter element : ");
-                    sq.insert(sc.nextInt());
+                    cq.insert(sc.nextInt());
                     break;
                 case 2 :
-                    System.out.println("remove first element : "+sq.delete());
+                    System.out.println("remove first element : "+cq.delete());
                     
                     break;
                 case 3 :
-                    sq.display();
+                    cq.display();
                     break;
                 case 4 :
                     flag = false;
@@ -67,5 +91,6 @@ public class R15_Simple_Queue{
                     System.out.println("your choice invalid");
             }
         }
-    }
+    
+    }   
 }

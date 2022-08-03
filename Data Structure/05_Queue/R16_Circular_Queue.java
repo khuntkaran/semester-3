@@ -16,15 +16,17 @@ public class R16_Circular_Queue {
             System.out.println("queue overflow");
             return;
            }
-           reset=1;
+           
         } 
         
         rear++;
         if(front==rear){
             System.out.println("queue overflow");
+            rear--;
             return;
         }
         Queue[rear]=y;
+        reset++;
         if(front==-1){
             front=0;
             System.out.println("hii");
@@ -40,13 +42,14 @@ public class R16_Circular_Queue {
             front=-1;
             rear=-1;
             System.out.println("iam -1");
-            reset=-1;
+            return y;
         }
         if(front==5){
             front=0;
         }
         else {
             front++;
+            reset--;
         }
         return y;
     }
@@ -56,7 +59,7 @@ public class R16_Circular_Queue {
             return;
         }
         System.out.print("[");
-        for(int i=front;i!=rear;i++){
+        for(int i=front,j=0;j<reset;i++,j++){
             System.out.print(Queue[i]+",");
             if(i==5&& front!=0){
                 i=-1;

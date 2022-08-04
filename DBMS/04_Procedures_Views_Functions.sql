@@ -33,24 +33,24 @@ Insert into Designation Values ('Manager')
 Insert into Designation Values ('CEO')
 
 
-Insert into Department Values ('Admin')
-Insert into Department Values ('IT')
-Insert into Department Values ('HR')
-Insert into Department Values ('Account')
+Insert into Department2 Values ('Admin')
+Insert into Department2 Values ('IT')
+Insert into Department2 Values ('HR')
+Insert into Department2 Values ('Account')
 
 
-Insert into Person Values ('Rahul', 'Anshu', 56000, '1990-01-01', 1, 12)
-Insert into Person Values ('Hardik', 'Hinsu', 18000, '1990-09-25', 2, 11)
-Insert into Person Values ('Bhavin', 'Kamani', 25000, '1991-05-14', Null, 11)
-Insert into Person Values ('Bhoomi', 'Patel', 39000, '2014-02-20', 1, 13)
-Insert into Person Values ('Rohit', 'Rajgor', 17000, '1990-07-23', 2, 15)
-Insert into Person Values ('Priya ', 'Mehta', 25000, '1990-10-18', 2, Null)
-Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
+Insert into Person2 Values ('Rahul', 'Anshu', 56000, '1990-01-01', 1, 12)
+Insert into Person2 Values ('Hardik', 'Hinsu', 18000, '1990-09-25', 2, 11)
+Insert into Person2 Values ('Bhavin', 'Kamani', 25000, '1991-05-14', Null, 11)
+Insert into Person2 Values ('Bhoomi', 'Patel', 39000, '2014-02-20', 1, 13)
+Insert into Person2 Values ('Rohit', 'Rajgor', 17000, '1990-07-23', 2, 15)
+Insert into Person2 Values ('Priya ', 'Mehta', 25000, '1990-10-18', 2, Null)
+Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 ---stored procedure---
 
-	---------1.-----------
+---------1.-----------
 
 		------(i). insert--------
 		create procedure PR_Person_Insert
@@ -62,7 +62,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		@DesignationID		int			
 		as
 		begin
-			insert into Person values (@FirstName,@LastName,@Salary,@JoiningDate,@DepartmentID,@DesignationID)
+			insert into Person2 values (@FirstName,@LastName,@Salary,@JoiningDate,@DepartmentID,@DesignationID)
 		end
 
 		execute PR_Person_Insert 'kiya', 'sah', 18000, '2014-02-20', 3, 15
@@ -81,7 +81,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		@DepartmentName		varchar(100)
 		as
 		begin
-			insert into Department values(@DepartmentName)
+			insert into Department2 values(@DepartmentName)
 		end
 
 		execute PR_Department_insert 'transport'
@@ -98,7 +98,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		@DesignationID		int			
 		as
 		begin
-			update Person set
+			update Person2 set
 				FirstName=@FirstName,
 				LastName=@LastName,
 				Salary=@Salary,
@@ -126,10 +126,10 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		@DepartmentName		varchar(100)
 		as
 		begin
-			update Department set DepartmentName=@DepartmentName where DepartmentID =@DepartmentID
+			update Department2 set DepartmentName=@DepartmentName where DepartmentID =@DepartmentID
 		end
 
-		execute PR_Department_update 6,'Transport'
+		execute PR_Department_update 5,'Transport'
 
 
 
@@ -140,7 +140,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		@WorkerID			int
 		as
 		begin
-			delete from Person where WorkerID=@WorkerID
+			delete from Person2 where WorkerID=@WorkerID
 		end
 
 		execute PR_Person_delete 108
@@ -159,7 +159,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		@DepartmentID		int
 		as
 		begin
-			delete from Department where DepartmentID =@DepartmentID
+			delete from Department2 where DepartmentID =@DepartmentID
 		end
 
 		execute PR_Department_delete 5
@@ -167,26 +167,26 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
-	-------2.--------
+-------2.--------
 	create procedure PR_All_Info
 	as
 	begin
 		select FirstName,lastname,Salary,JoiningDate,DepartmentName,DesignationName
-		from Person
-		inner join Department
-		on Person.DepartmentID=Department.DepartmentID
+		from Person2
+		inner join Department2
+		on Person2.DepartmentID=Department2.DepartmentID
 		inner join Designation
-		on Person.DesignationID=Designation.DesignationID
+		on Person2.DesignationID=Designation.DesignationID
 	end
 
 	execute PR_All_Info
 
-	------3-------
-	create procedure PR_Person_selectpk
+------3-------
+		create procedure PR_Person_selectpk
 		@WorkerID			int
 		as
 		begin
-			select * from Person where WorkerID=@WorkerID
+			select * from Person2 where WorkerID=@WorkerID
 		end
 
 		execute PR_Person_selectpk 105
@@ -205,7 +205,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		@DepartmentID		int
 		as
 		begin
-			select * from Department where DepartmentID =@DepartmentID
+			select * from Department2 where DepartmentID =@DepartmentID
 		end
 
 		execute PR_Department_selectpk 4
@@ -213,16 +213,16 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
-	-----4-----
+-----4-----
 	create procedure PR_Take_DepartmentName_DesignationName
 	@DepartmentName varchar(100),
 	@DesignationName varchar(100)
 	as
 	begin
 		select FirstName,Salary,JoiningDate,DepartmentName
-		from Person
-		inner join Department
-		on Person.DepartmentID=Department.DepartmentID
+		from Person2
+		inner join Department2
+		on Person2.DepartmentID=Department2.DepartmentID
 		where DesignationID= (select DesignationID from Designation where DesignationName= @DesignationName)
 		group by FirstName,Salary,JoiningDate,DepartmentName
 		having DepartmentName= @DepartmentName
@@ -232,7 +232,34 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
-	----5----
+----5----
+	create procedure PR_All_Info_On_Name
+	@FirstName varchar(100)
+	as
+	begin
+		select FirstName,lastname,Salary,JoiningDate,DepartmentName,DesignationName
+		from Person2
+		inner join Department2
+		on Person2.DepartmentID=Department2.DepartmentID
+		inner join Designation
+		on Person2.DesignationID=Designation.DesignationID
+		where FirstName=@FirstName
+	end
 
+	execute PR_All_Info_On_Name 'rahul'
+
+
+-----6------
+	create procedure PR_Department_wise_Salary
+	as
+	begin
+		select DepartmentName,max(Salary) as Maximum,min(Salary) as Minimum,sum(Salary) as Total
+		from Person2
+		right outer join Department2
+		on Person2.DepartmentID=Department2.DepartmentID
+		group by DepartmentName
+	end
+
+	execute PR_Department_wise_Salary
 
 		

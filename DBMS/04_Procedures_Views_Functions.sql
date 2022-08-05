@@ -263,3 +263,98 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	execute PR_Department_wise_Salary
 
 		
+		
+
+-------------views------------
+-------1-------
+	create view display_top_100
+	as
+	select top 100 * from Person
+
+
+
+	select * from display_top_100
+
+
+
+------2-----
+	create view designation_wise
+	as
+	select DesignationName,max(Salary)as maximun,min(Salary) as minimum,sum(Salary) as total
+	from Person
+	inner join Designation
+	on Person.DesignationID=Designation.DesignationID
+	group by DesignationName
+
+
+	select * from designation_wise
+
+
+
+-----3------
+	create view duraton
+	as
+	select FirstName ,Salary,JoiningDate,DATEDIFF(year,JoiningDate,getdate())as date_duration_in_day from Person
+
+
+	select * from duraton
+
+
+-----4------
+	create view DepartmentName_DesignationName_wise_person
+	as
+	select DepartmentName,DesignationName ,count(WorkerID)as person_number
+		from Person
+		inner join Department
+		on Person.DepartmentID=Department.DepartmentID
+		inner join Designation
+		on Person.DesignationID=designation.DesignationID
+		group by DepartmentName,DesignationName
+	
+	select * from DepartmentName_DesignationName_wise_person
+
+
+
+------5------
+	create view either_in_any_Designation_Department
+	as
+	select * from Person where DepartmentID is null or DesignationID is null
+
+
+	select * from either_in_any_Designation_Department
+
+--------user difined function----------
+
+------1------
+	create function deptId(@DepartmentID int)
+	returns table
+	as
+		return(select * from Person where DepartmentID = @DepartmentID)
+
+
+		select * from deptId(4)
+
+-------2------
+
+
+-----3------
+	create function datedifference(@Startdate datetime,@Enddate datetime)
+	returns int
+	as
+	begin
+		return(datediff(day,@Startdate,@Enddate))
+	end
+
+	select dbo.datedifference('2004-07-16',getdate())
+
+
+
+------4-------
+	create function convert_in_day(@year int,@month int)
+	returns int
+	as
+	begin
+		return((@year*365)+(@month*30))
+	end
+
+	select dbo.convert_in_day(1,1)

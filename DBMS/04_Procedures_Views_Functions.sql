@@ -269,7 +269,7 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 -------1-------
 	create view display_top_100
 	as
-	select top 100 * from Person
+	select top 100 * from Person2
 
 
 
@@ -281,9 +281,9 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	create view designation_wise
 	as
 	select DesignationName,max(Salary)as maximun,min(Salary) as minimum,sum(Salary) as total
-	from Person
+	from Person2
 	inner join Designation
-	on Person.DesignationID=Designation.DesignationID
+	on Person2.DesignationID=Designation.DesignationID
 	group by DesignationName
 
 
@@ -294,7 +294,7 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 -----3------
 	create view duraton
 	as
-	select FirstName ,Salary,JoiningDate,DATEDIFF(year,JoiningDate,getdate())as date_duration_in_day from Person
+	select FirstName ,Salary,JoiningDate,DATEDIFF(year,JoiningDate,getdate())as date_duration_in_year from Person2
 
 
 	select * from duraton
@@ -304,11 +304,11 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	create view DepartmentName_DesignationName_wise_person
 	as
 	select DepartmentName,DesignationName ,count(WorkerID)as person_number
-		from Person
-		inner join Department
-		on Person.DepartmentID=Department.DepartmentID
+		from Person2
+		inner join Department2
+		on Person2.DepartmentID=Department2.DepartmentID
 		inner join Designation
-		on Person.DesignationID=designation.DesignationID
+		on Person2.DesignationID=designation.DesignationID
 		group by DepartmentName,DesignationName
 	
 	select * from DepartmentName_DesignationName_wise_person
@@ -318,7 +318,7 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 ------5------
 	create view either_in_any_Designation_Department
 	as
-	select * from Person where DepartmentID is null or DesignationID is null
+	select * from Person2 where DepartmentID is null or DesignationID is null
 
 
 	select * from either_in_any_Designation_Department
@@ -329,10 +329,10 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	create function deptId(@DepartmentID int)
 	returns table
 	as
-		return(select * from Person where DepartmentID = @DepartmentID)
+		return(select * from Person2 where DepartmentID = @DepartmentID)
 
 
-		select * from deptId(4)
+		select * from deptId(1)
 
 -------2------
 

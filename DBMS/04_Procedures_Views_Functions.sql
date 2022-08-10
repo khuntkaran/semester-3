@@ -323,6 +323,10 @@ Insert into Person2 Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 	select * from either_in_any_Designation_Department
 
+
+
+
+
 --------user difined function----------
 
 ------1------

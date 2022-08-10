@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class R14_Prefix_Evaluation{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        R10_OperationsUsingArray kp = new R10_OperationsUsingArray();
         System.out.println("enter string");
         String prefix = sc.next();
         String ninfix="";

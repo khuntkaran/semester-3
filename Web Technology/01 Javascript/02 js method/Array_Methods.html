@@ -13,19 +13,36 @@
         
         //Push Method add element at the "end" of arry...
         arr.push(60);
-
-        //Pop method remove last element... 
-        arr.pop();
-
-        //Remove First element...
-        arr.shift();
-
-        //Add First element..
-        arr.unshift(10);
-        
         for(i=0;i<arr.length;i++){
             document.write(arr[i]+" ");
         }
+        document.write("<br/><br/>");
+
+        //Pop method remove last element... 
+        arr.pop();
+        for(i=0;i<arr.length;i++){
+            document.write(arr[i]+" ");
+        }
+        document.write("<br/><br/>");
+
+        //Remove First element...
+        arr.shift();
+        for(i=0;i<arr.length;i++){
+            document.write(arr[i]+" ");
+        }
+        document.write("<br/><br/>");
+
+        //Add First element..
+        arr.unshift(10);
+        for(i=0;i<arr.length;i++){
+            document.write(arr[i]+" ");
+        }
+        document.write("<br/><br/>");
+
+        //
+        document.write(arr.reverse())
+        document.write("<br/><br/>");
+        document.write(arr.sort())
     </script>
 </body>
 </html>

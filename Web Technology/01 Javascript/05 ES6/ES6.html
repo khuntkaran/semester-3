@@ -18,7 +18,12 @@
                 {name: "jay",age:19,spi:7.5}
             ];
             temp = document.getElementById("main");
-        
+            
+            //--include
+            const include1 = student[0].name.includes("karan");
+            const include2 = student[0].name.includes("karan2");
+            temp.innerHTML+="<h1>include</h1>"+ include1+"<br>"+include2+"<br><hr>";
+            
             //--find
             const find = student.find((stu)=>{
                 if(stu.spi>8){
@@ -51,13 +56,13 @@
             })
             temp.innerHTML+="<h1>filter</h1>"+ filter[0].name+" "+filter[0].age+" "+filter[0].spi +"  "+ filter[1].name+" "+filter[1].age+" "+filter[1].spi+"<br>";
             const filter_with_map = filter.map((stu)=>{
-            return "<li>"+stu.name+" "+stu.spi+"<li>";
+            return "<li>"+stu.name+" "+stu.spi+"</li>";
             })
             temp.innerHTML+="<h3>filter with map</h3>"+ "<ul>"+filter_with_map+"</ul><br><hr>";
 
             //--map
             const map = student.map((stu)=>{
-            return "<li>"+stu.name+" "+stu.spi+"<li>";
+            return "<li>"+stu.name+" "+stu.spi+"</li>";
             })
             temp.innerHTML+="<h1>map</h1>"+ "<ul>"+map+"</ul><br><hr>";
 
@@ -68,15 +73,12 @@
             })
             sum=""
             for(let stu2 of student){
-            sum+="<li>"+stu2.name+" "+stu2.spi+"<li>";
+            sum+="<li>"+stu2.name+" "+stu2.spi+"</li>";
             }
             temp.innerHTML+="<ui>"+sum+"</ui>"
             temp.innerHTML+="<hr> "
 
-            //--include
-            const include1 = student[0].name.includes("karan");
-            const include2 = student[0].name.includes("karan2");
-            temp.innerHTML+="<h1>include</h1>"+ include1+"<br>"+include2+"<br><hr>";
+            
 
             //--array
             temp.innerHTML+= "<h1>array</h1>"

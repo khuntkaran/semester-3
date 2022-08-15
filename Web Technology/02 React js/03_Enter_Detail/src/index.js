@@ -5,53 +5,53 @@ const root = createRoot(rootElement);
 let isEdit = -1;
 
 const Display = () => {
-  let [Persion, setPersion] = useState([
-    {
-      PersionName: "karan",
-      PersionAge: 19
-    },
-    {
-      PersionName: "harsh",
-      PersionAge: 20
-    }
-  ]);
+      let [Persion, setPersion] = useState([
+        {
+          PersionName: "karan",
+          PersionAge: 19
+        },
+        {
+          PersionName: "harsh",
+          PersionAge: 20
+        }
+      ]);
 
-  let [Detail, setDetail] = useState({});
+      let [Detail, setDetail] = useState({});
 
-  let formedPersion = Persion.map((pe, i) => {
-    return (
-      <tr>
-        <td>{pe.PersionName}</td>
-        <td>{pe.PersionAge}</td>
-        <td>
-          <button
-            class="btn btn-primary"
-            onClick={() => {
-              isEdit = i;
-              setDetail({
-                ...Detail,
-                PersionName: Persion[i].PersionName,
-                PersionAge: Persion[i].PersionAge
-              });
-            }}
-          >
-            Edit
-          </button>
-        </td>
-        <td>
-          <button
-            class="btn btn-danger"
-            onClick={() => {
-              Persion.splice(i, 1);
-              setPersion([...Persion]);
-            }}
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    );
-  });
+      let formedPersion = Persion.map((pe, i) => {
+        return (
+          <tr>
+            <td>{pe.PersionName}</td>
+            <td>{pe.PersionAge}</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                onClick={() => {
+                  isEdit = i;
+                  setDetail({
+                    ...Detail,
+                    PersionName: Persion[i].PersionName,
+                    PersionAge: Persion[i].PersionAge
+                  });
+                }}
+              >
+                Edit
+              </button>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger"
+                onClick={() => {
+                  Persion.splice(i, 1);
+                  setPersion([...Persion]);
+                }}
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        );
+      });
   return (
     <>
       <form>

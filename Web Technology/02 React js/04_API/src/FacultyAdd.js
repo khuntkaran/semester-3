@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const FacultyAdd=()=>{
-    let [data,setdata]=useState({});
+    
     const params = useParams();
     const navigate=useNavigate();
-    
+    const initialState = {
+        FacultyName: "",
+        FacultyImage: "",
+        Mobile: "",
+        Email: ""
+      };
+    let [data,setdata]=useState(initialState);
     useEffect(() => {
-        if(params.id >0){
-            alert("if")
+        if(params.id !=null){
             fetch("https://62e7ab1e0e5d74566af96c99.mockapi.io/My/" + params.id,{
             method:"GET"
             })
@@ -20,9 +25,9 @@ const FacultyAdd=()=>{
             });
         }
         else{
-            alert("else") 
+            setdata(initialState );
         }
-      }, []);
+      }, [params]);
 
     return(
         <>

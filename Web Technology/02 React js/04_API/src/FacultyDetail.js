@@ -22,9 +22,9 @@ const FacultyDetail = () => {
     <>
     <button className="btn btn-primary ms-3" onClick= {()=>{navigate("/facultiesname")}}>Back</button>
       <table className="m-5 ">
-        <tr >
+        <tr  >
           <td colSpan={2}>
-            <img src={Faculty.FacultyImage} alt="asdf" />
+            <img src={Faculty.FacultyImage} alt="image_address_not_valid" style={{width:100+'%'}} />
           </td>
         </tr>
         <tr>

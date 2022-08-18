@@ -13,10 +13,10 @@ const FacultiesName = () => {
       });
   }, []);
 
-  const formtedfaculties = faculties.map((fac) => {
+  const formtedfaculties = faculties.map((fac,i) => {
     return (
       <>
-        <Link to={"../faculty/" + fac.id}>{fac.FacultyName}</Link>
+        <h6 className="my-0">{i+1}. <Link style={{textDecoration:"none",color:"#70a5c2"}} to={"../faculty/" + fac.id}>{fac.FacultyName}</Link></h6>
         <br />
       </>
     );

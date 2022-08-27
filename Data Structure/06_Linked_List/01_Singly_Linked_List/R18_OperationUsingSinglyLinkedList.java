@@ -1,3 +1,4 @@
+package singly_linked_list;
 import java.util.Scanner;
 
 class Avail{
@@ -7,15 +8,13 @@ class Avail{
 public class R18_OperationUsingSinglyLinkedList{
     int n=6;
     int i=0;
-    Object[] Avail = new Object[n];
     Avail First;
     Avail Last;
-    
     Avail[] NA=new Avail[n];
 
     void insertFront(Object x){
         if(i>=n){
-            System.out.println("Availability stack underflow");
+            System.out.println("Availability Stack Underflow");
            return;
         }
         NA[i]= new Avail();
@@ -29,19 +28,9 @@ public class R18_OperationUsingSinglyLinkedList{
         First=newpart;
     }
 
-    void display(){
-        Avail displayNode= First;
-        while(displayNode!=null){
-            Object element = displayNode.value;
-            System.out.print("["+element+"]->");
-            displayNode= displayNode.address;
-        }
-        System.out.println();
-    }
-
     Object deleteFront(){
         if(First==null){
-            return "underflow";
+            return "Underflow";
         }
         Object free = First.value;
         First=First.address;
@@ -50,7 +39,7 @@ public class R18_OperationUsingSinglyLinkedList{
 
     void insertEnd(Object x){
         if(i>=n){
-            System.out.println("Availability stack underflow");
+            System.out.println("Availability Stack Underflow");
            return;
         }
         NA[i]= new Avail();
@@ -58,6 +47,9 @@ public class R18_OperationUsingSinglyLinkedList{
         newpart.value =x;
         if(i!=0 && First==null){
             First=newpart;
+            i++;
+            Last=newpart;
+            return;
         }
         if(i==0){
             Last=newpart;
@@ -69,13 +61,61 @@ public class R18_OperationUsingSinglyLinkedList{
         Last=newpart;
     }
 
-    Object deleteLast(){
+    Object deleteEnd(){
         if(First==null){
-            return "underflow";
+            return "Underflow";
         }
         Object free = Last.value;
-        First=First.address;
+        if(First.address==null){
+            First=null;
+            Last=null;
+            return free;
+        }
+        Last= First;
+        while(Last.address.address!=null){
+            Last=Last.address;
+        }
+            Last.address=null;
         return free;
+    }
+
+    Object deleteSpecified(Object x){
+        if(First==null){
+            System.out.print("Empty Linked List ");
+            return 0;
+        }
+        if(First.value.equals(x)){
+            Object free = First.value;
+            First=First.address;
+            return free;
+        }
+        Avail save = First;
+        Avail pred=save;
+        while((!save.value.equals(x)) && save.address!=null){
+            pred=save;
+            save=save.address;
+        }
+        if((!save.value.equals(x))){
+            System.out.print("Not Fount ");
+            return 0;
+        }
+        if(save.address==null){
+            pred.address=null;
+            return save.value;
+        }
+        pred.address=save.address;
+        return save.value;
+    }
+
+    void display(){
+        Avail displayNode= First;
+        System.out.print("|");
+        while(displayNode!=null){
+            Object element = displayNode.value;
+            System.out.print("["+element+"]->");
+            displayNode= displayNode.address;
+        }
+        System.out.println("|");
     }
 
     public static void main(String[] args) {
@@ -83,30 +123,36 @@ public class R18_OperationUsingSinglyLinkedList{
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
         while (flag){
-            System.out.print(  "1 : Insert a node at the front of the linked list\n2 : Display all node\n3 : Delete a node at the front of the linked list\n4 : Insert a node at the end of the linked list\n6 : exit\noperation : ");
-            int y = sc.nextInt();
+            System.out.print(  "1 : Insert a node at the Front of the Linked List\n2 : Delete a node at the Front of the Linked List\n3 : Insert a node at the Lastt of the Linked List\n4 : Delete a node at the Lastt of the Linked List\n5 : Delete a node from Specified Value\n6 : Display all node\n7 : Exit\nOperation : ");
+            String y = sc.next();
             switch (y){
-                case 1 :
-                    System.out.print("enter element : ");
+                case "1" :
+                    System.out.print("Enter Value : ");
                     oul.insertFront(sc.next());
                     break;
-                case 2 :
-                    oul.display();
+                case "2" :
+                    System.out.println("Deleted Value : "+ oul.deleteFront());
                     break;
-                case 3 :
-                    System.out.println( oul.deleteFront());
-                    break;
-                case 4 :
-                    System.out.print("enter element : ");
+                case "3":
+                    System.out.print("Enter Value : ");
                     oul.insertEnd(sc.next());
                     break;
-                case 6 :
+                case "4":
+                    System.out.println( oul.deleteEnd());
+                    break;
+                case "5" :
+                    System.out.print("Enter Value : ");
+                    System.out.println( oul.deleteSpecified(sc.next()));
+                    break;
+                case "6" :
+                    oul.display();
+                    break;
+                case "7":
                     flag = false;
                     break;
                 default:
-                    System.out.println("your choice invalid");
+                    System.out.println("Your Choice Invalid Chose In --> {1 to 7}");
             }
         }
-
     }
 }

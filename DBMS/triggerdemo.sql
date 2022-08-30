@@ -1,74 +1,115 @@
-create table demo1(
-	person varchar
+
+Create Table Person(
+	PersonID		int				Primary Key,
+	PersonName		varchar(50)		Not Null,
+	Salary			decimal(8,2)	Not Null,
+	JoiningDate		datetime		Not Null,
+	City			varchar(50)		Not Null,
+	Age				int 			null,
+	BirthDate		datetime		Not Null
 )
 
-create table log(
-	message varchar(500)
+
+Create Table PersonLog(
+	PersonLogID		int				Primary Key Identity(2101, 1),
+	PersonID		int				Not Null,
+	PersonName		varchar(250)	Not Null,
+	Operation		varchar(50)		Not Null,
+	UpdatedDate		datetime		Not Null
 )
 
-create trigger Insert_demo
-on demo1
-for insert
-as
-begin
-	print('record insert')
-end
 
-create trigger update_demo1
-on demo1
-for update
-as
-begin
-	print('record update')
-end
 
-create trigger delete_demo1
-on demo1
+------------1--------------------------
+create procedure PR_Isert_Person
+	@PersonID		int,
+	@PersonName		varchar(50),
+	@Salary			decimal(8,2),
+	@JoiningDate	datetime,	
+	@City			varchar(50),
+	@Age			int,	
+	@BirthDate		datetime
+as
+	insert into Person values(@PersonID,@PersonName,@Salary,@JoiningDate,@City,@Age,@BirthDate)
+
+create procedure PR_update_Person
+	@PersonID		int,
+	@PersonName		varchar(50),
+	@Salary			decimal(8,2),
+	@JoiningDate	datetime,	
+	@City			varchar(50),
+	@Age			int,	
+	@BirthDate		datetime
+as
+	update Person set	PersonName= @PersonName,
+						Salary=@Salary,
+						JoiningDate=@JoiningDate,
+						City=@City,
+						Age=@Age,
+						BirthDate=@BirthDate 
+	where PersonID=@PersonID
+
+create procedure PR_Delete_Person
+	@PersonID		int
+as
+	delete from Person where PersonID=@PersonID
+
+
+
+---------------2------------
+create Trigger TR_For_Insert_Person
+on Person
+For insert
+as
+Begin
+	declare @PersonID int,@PersonName varchar(250)
+	select @PersonID=PersonID,@PersonName=PersonName from inserted
+	insert into PersonLog values(@PersonID,@PersonName,'After Insert',GETDATE())
+End
+
+create Trigger TR_For_Update_Person
+on Person
+For Update
+as
+Begin
+	declare @PersonId int,@PersonName varchar(50)
+	select @PersonId=PersonId,@PersonName=PersonName from inserted
+	Insert into PersonLog values(@PersonId,@PersonName,'After Update',GETDATE())
+End
+
+create Trigger TR_FOR_Delete_Person
+on Person
 for delete
 as
-begin
-	print('delete record')
-end
+Begin
+	declare @PersonId int,@PersonName varchar(50)
+	select @PersonId=PersonId,@PersonName=PersonName from deleted
+	insert into PersonLog values(@PersonId,@PersonName,'After delete',getdate())
+End
 
-create trigger Insert_demo12
-on demo1
-for insert
+
+
+------------3-------------
+
+create Trigger TR_insteadOf_insert_Person
+on Person
+Instead of insert
 as
-begin
-	declare @person varchar
-	select @person = person from inserted
-
-	insert into log values('insert record : '+@person+' is inserted on '+CAST(getdate() as varchar))
-end
-
-create trigger update_demo12
-on demo1
-for update
-as
-begin
-	declare @person varchar
-	select @person = Person from inserted
-
-	insert into log values('update record : '+@person+' is updated on '+cast(getdate() as varchar))
-end
+Begin
+	declare @personID int, @personName varchar(50)
+	select @personID=personID,@personName=personName from inserted
+	insert into PersonLog values(@personID,@personName,'Before Insert',GETDATE())
+End
 
 
-create trigger delete_demo12
-on demo1
-for delete
-as
-begin
-	declare @person varchar
-	select @person=Person from deleted
-
-	insert into log values('delete record : '+@person+' is deleted on '+cast(getdate() as varchar))
-end
 
 
-insert into demo1 values(9)
-update demo1 set person=1
-delete from demo1 where person=1
-select * from inserted
-select * from demo1
-select * from log
-delete from log
+
+execute PR_Isert_Person 101,'karan',150000,'2023-07-16','rajkot',20,'2004-07-16'
+execute PR_update_Person 101,'khunt karan',200000,'2023-08-26','Rajkot',20,'2004-07-16'
+execute PR_Delete_Person 101
+select * from Person
+select * from PersonLog
+
+execute PR_Isert_Person 505,'raj',5421,'2022-05-08','rajkot',25,'2000-12-31'
+insert into person values(505,'raj',5421,'2022-05-08','rajkot',25,'2000-12-31')

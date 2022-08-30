@@ -29,7 +29,6 @@ public class R16_Circular_Queue {
         reset++;
         if(front==-1){
             front=0;
-            System.out.println("hii");
         }
     }
     Object delete(){
@@ -41,7 +40,7 @@ public class R16_Circular_Queue {
         if(front==rear){
             front=-1;
             rear=-1;
-            System.out.println("iam -1");
+            reset--;
             return y;
         }
         if(front==5){
@@ -55,7 +54,7 @@ public class R16_Circular_Queue {
     }
     void display(){
         if(front==-1){
-            System.out.println(front+"empty queue");
+            System.out.println(front+" empty queue");
             return;
         }
         System.out.print("[");
@@ -78,7 +77,7 @@ public class R16_Circular_Queue {
             switch (y){
                 case 1 :
                     System.out.print("enter element : ");
-                    cq.insert(sc.nextInt());
+                    cq.insert(sc.next());
                     break;
                 case 2 :
                     System.out.println("remove first element : "+cq.delete());

@@ -33,8 +33,43 @@ public class R22_Operation_Using_Doubly_LinkedList {
     }
 
     Object deleteSpecified(Object x){
+        if(First==null){
+            System.out.print("Empty Linked List ");
+            return 0;
+        }
+        if(First.value.equals(x)){
+            Object free = First.value;
+            i--;
+            if(First.RPTR==null){
+                First=null;
+                Last=null;
+                return free;
+            }
+            First=First.RPTR;
+            First.LPTR=null;
+            return free;
+        }
+        Avail save = First;
+        Avail pred = save;
+        while ((!save.value.equals(x))&&save.RPTR!=null) {
+            pred=save;
+            save=save.RPTR;
+        }
+        if((!save.value.equals(x))){
+            System.out.print("Not Fount ");
+            return 0;
+        }
+        i--;
+        if(save.RPTR==null){
+            pred.RPTR=null;
+            Last=pred;
+            return save.value;
+        }
+        pred.RPTR=save.RPTR;
+        (save.RPTR).LPTR=pred;
         System.out.println("deleteSpecified");
-        return 0;
+        
+        return save.value;
     }
 
     void insertEnd(Object x){

@@ -1,3 +1,4 @@
+package Doubly_Linked_List;
 import java.util.Scanner;
 
 class Avail{

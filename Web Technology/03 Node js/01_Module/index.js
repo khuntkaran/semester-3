@@ -1,6 +1,9 @@
 console.log("hello world ");
-const fs= require("fs");
 
+
+
+//------------------------fs-------------------//
+const fs= require("fs");
 
 
 
@@ -27,8 +30,9 @@ const fs= require("fs");
 
 
 
-
 //-------Asynchronous-----------//
+
+//fs.mkdir("thapa",()=>{})
 
 //fs.writeFile('read.txt','i am karan',()=>{console.log('successful');})
 
@@ -39,3 +43,37 @@ const fs= require("fs");
 //fs.rename("read.txt","read_write.txt",()=>{console.log("rename successfuly")});
 
 //fs.unlink('read_write.txt',()=>{console.log("deleted successfuly")}); //Delete File
+//fs.rmdir("thapa",()=>{}) //Delete Folder
+
+
+
+
+
+//------------------os--------------------//
+const os = require("os");
+
+// console.log(os.arch());
+// console.log(os.hostname());
+// console.log(os.platform());
+// console.log(os.tmpdir());
+// console.log(os.type());
+
+// const fm = os.freemem();
+// console.log(((fm/1024)/1024)/1024);
+
+// const tm = os.totalmem();
+// console.log(((tm/1024)/1024)/1024);
+
+
+
+
+
+//----------------path-------------//
+  const path = require("path");
+
+// console.log(path.dirname("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+// console.log(path.extname("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+// console.log(path.basename("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+// console.log(path.parse("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+// const objpath=path.parse("E:/semester-3/Web Technology/03 Node js/01_First/index.js");
+// console.log(objpath.name);

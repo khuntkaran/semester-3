@@ -1,0 +1,16 @@
+{
+  "name": "03_npm_modul",
+  "version": "1.0.0",
+  "description": "My First",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khunt karan",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "validator": "^13.7.0"
+  }
+}

@@ -10,16 +10,16 @@ server.on('request',(req,res)=>{
     res.end(data.toString()+'-----1st_complite-------');
   })
 
-  //2nd way
+  // //2nd way
   const rstream = fs.createReadStream('index.txt');
   rstream.on('data',(chunkdata)=>{
-    res.write(chunkdata);
+    res.write(chunkdata+'----2nd_complite-------');
     rstream.on('end',()=>{
-        res.end('-----2nd_complite-------');
+        res.end('----2nd_complite-------');
     })
   })
 
-  //3rd way
+  // //3rd way
   rstream.pipe(res);
 })
 

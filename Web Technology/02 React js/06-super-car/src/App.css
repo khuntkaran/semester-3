@@ -1,4 +1,24 @@
 .card:hover{
     transform: scale(1.05);
- box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
+.inner{
+    overflow: hidden;
+}
+.inner img{
+    transition:all 1.5s ease;
+}
+.inner:hover img{
+    transform: scale(1.5);
+}
+.header-color{
+    background-color: black;
+}
+.indata {
+    font-size: 30px;
+    font-family: "Times New Roman", Times, serif;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid red;
+    color: yellow;
+  }

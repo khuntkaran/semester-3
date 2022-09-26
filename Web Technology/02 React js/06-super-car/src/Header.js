@@ -1,12 +1,26 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import './App.css';
 const Header = () =>{
+    //header change color
+    const [color,setColor]= useState(false);
+    const changeColor=()=>{
+        if(window.scrollY>=520){
+            setColor(true);
+        }
+        else{
+            setColor(false);
+        }
+    }
+    window.addEventListener("scroll",changeColor);
+
     return(
         <>
-            <nav class="navbar navbar-expand-lg p-0  fixed-top shadow-5-strong navbar-dark">
+            <nav  className={color ? 'header-color navbar navbar-expand-lg p-0  fixed-top shadow-5-strong navbar-dark':'navbar navbar-expand-lg p-0  fixed-top shadow-5-strong navbar-dark'} >
                 <div class="container">
-                    <a class="navbar-brand" href="#">
+                    <Link class="navbar-brand" to="">
                         <img src="favicon-32x32.png" alt="Logo" width="100%" height="60" class="d-inline-block align-text-top"/>
-                    </a>
+                    </Link>
                     <span style={{color:"#FF0000",fontFamily:"fantasy"}} className="my-auto h1">SUPER CAR</span>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,15 +41,15 @@ const Header = () =>{
                 </div>
             </nav>
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner h-50">
-                <div class="carousel-item active">
-                <img src="1207116.jpg" style={{height:35+'rem'}} class="d-block w-100 " alt="..."/>
+            <div class="carousel-inner ">
+                <div class="carousel-item active inner">
+                <img src="https://www.supercars.net/blog/wp-content/uploads/2020/07/bugatti-divo-2018-art-x6-1400x788.jpg" style={{height:35+'rem'}} class="d-block w-100 " alt="..."/>
                 </div>
-                <div class="carousel-item">
-                <img src="1168080.jpg" style={{height:35+'rem'}} class="d-block w-100" alt="..."/>
+                <div class="carousel-item inner">
+                <img src="https://www.supercars.net/blog/wp-content/uploads/2022/07/Bugatti-Chiron-Super-Sport-by-Doug-1421x799.jpg" style={{height:35+'rem'}} class="d-block w-100" alt="..."/>
                 </div>
-                <div class="carousel-item">
-                <img src="1188379.jpg" style={{height:35+'rem'}} class="d-block w-100" alt="..." />
+                <div class="carousel-item inner">
+                <img src="https://www.supercars.net/blog/wp-content/uploads/2021/09/Performance-hybrid-electric-1421x748.jpg" style={{height:35+'rem'}} class="d-block w-100" alt="..." />
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

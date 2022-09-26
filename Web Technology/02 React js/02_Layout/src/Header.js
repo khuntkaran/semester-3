@@ -9,6 +9,9 @@ const Header = () => {
       <Link to="./facultyname">FacultyName</Link> &nbsp;
       <Link to="./exp10+">10+EXP</Link> &nbsp;
       <Link to="./facultydesign">FacultyDesign</Link> &nbsp;
+      <br />
+      <Link to="./studentname">StudentName</Link> &nbsp;
+      <Link to="./studentadd">StudentAdd</Link>&nbsp;
       <hr />
       <hr />
     </>

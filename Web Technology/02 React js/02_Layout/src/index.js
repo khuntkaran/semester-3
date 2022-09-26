@@ -9,7 +9,8 @@ import Contact from "./Contact";
 import Exp10Name from "./Faculty10+";
 import FacultyName from "./FacultyName";
 import FacultyDesign from "./FacultyDesign";
-
+import StudentName from "./RestAPI/StudentName"
+import StudentAdd from "./RestAPI/StudentAdd";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
@@ -23,6 +24,8 @@ root.render(
         <Route path="/facultyname" element={<FacultyName />}></Route>
         <Route path="/exp10+" element={<Exp10Name />}></Route>
         <Route path="/facultydesign" element={<FacultyDesign />}></Route>
+        <Route path="/studentname" element={<StudentName/>}></Route>
+        <Route path="/studentadd" element={<StudentAdd/>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

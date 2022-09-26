@@ -20,11 +20,11 @@ const Carall =()=>{
         return(
             <>  
                 <div className="col-md-4">
-                    <div class="card shadow-lg" style={{width: 18+"rem"}} onClick={()=>{navigate('/YourCar/'+fac.id)}}>
-                        <img src={fac.SuperCarImage} class="card-img-top " alt="..."/>
-                        <div class="card-body">
-                            <h5 class="card-title">Car : {fac.SuperCarName}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card text-light shadow" style={{backgroundColor:"black",width: 18+"rem"}} onClick={()=>{navigate('/YourCar/'+fac.id)}}>
+                        <div className="inner"><img src={fac.SuperCarImage} class="card-img-top " alt="..."/></div>
+                        <div class="card-body text-center text-light">
+                            <h5 class="card-title">{fac.SuperCarName}</h5>
+                            <p class="card-text">more info....</p>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ const Carall =()=>{
     }) 
     return(
         <>
-        <div className="container mt-5">
+        <div className="container my-5 ">
             <div className="row align-center g-4 ">
                 {formtedcar}
             </div>

@@ -35,13 +35,23 @@ const StudentAdd = ()=>{
                 <tr>
                     <td colSpan={3}>
                         <button onClick={()=>{
-                            console.log(data)
+                            console.log(data);
+                            
+                            var formBody = [];
+                            for (var property in data) {
+                            var encodedKey = encodeURIComponent(property);
+                            var encodedValue = encodeURIComponent(data[property]);
+                            formBody.push(encodedKey + "=" + encodedValue);
+                            }
+                            formBody = formBody.join("&");
+
+
                             fetch('http://localhost:3003/studentadd',{
                                 method:"POST",
-                                body:JSON.stringify(data),
-                                headers:{
-                                    "Content-Type":"application/json"
-                                }
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                                  },
+                                  body: formBody
                             }).then(()=>{
                                return navigate("/studentname");
                             }

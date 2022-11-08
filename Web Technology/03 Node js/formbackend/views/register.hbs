@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>register form</h1>
+    <form action="/register" method="POST">
+    <table>
+        <tr>
+             <td>
+                <td>First Name</td>
+                <td>:</td>
+                <td><input required type="text" name="firstname"></td>
+            </td>
+            <td>
+                <td>Last Name</td>
+                <td>:</td>
+                <td><input required type="text" name="lastname"></td>
+            </td>
+        </tr>
+        
+         <tr>
+             <td>
+                <td>Email</td>
+                <td>:</td>
+                <td><input required type="email" name="email"></td>
+            </td>
+            <td colspan="3">
+                <label><input required type="radio" name="gender" value="male" >Male</label>
+                 <label><input required type="radio" name="gender" value="female">Female</label>
+            </td>
+        </tr>
+
+         <tr>
+             <td>
+                <td>Phone No</td>
+                <td>:</td>
+                <td><input required type="number" name="phone"></td>
+            </td>
+            <td>
+                <td>Age</td>
+                <td>:</td>
+                <td><input required type="number" name="age"></td>
+            </td>
+        </tr>
+
+         <tr>
+             <td>
+                <td>Password</td>
+                <td>:</td>
+                <td><input required type="password" name="password"></td>
+            </td>
+            <td>
+                <td>confrim Password</td>
+                <td>:</td>
+                <td><input required type="password" name="confirmpassword"></td>
+            </td>
+        </tr>
+        <tr>
+            <td><a ><input type="submit" value="Register" ></a></td>
+        </tr>
+    </table></form>
+    <a href="../">home</a>
+</body>
+</html>

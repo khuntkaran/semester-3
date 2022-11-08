@@ -8,7 +8,7 @@ const server = http.createServer((req,res)=>{
         res.end("hello from about");
     }
     else{
-        res.writeHead(404,{"Content-type":"text/html"});
+        res.writeHead(404,{"Content-Type":"text/html"});
         res.end("<h1>404 error </h1>"+req.url);
     }
 }); 

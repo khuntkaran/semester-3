@@ -71,9 +71,9 @@ const os = require("os");
 //----------------path-------------//
   const path = require("path");
 
-// console.log(path.dirname("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
-// console.log(path.extname("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
-// console.log(path.basename("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
-// console.log(path.parse("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
-// const objpath=path.parse("E:/semester-3/Web Technology/03 Node js/01_First/index.js");
-// console.log(objpath.name);
+console.log(path.dirname("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+console.log(path.extname("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+console.log(path.basename("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+console.log(path.parse("E:/semester-3/Web Technology/03 Node js/01_First/index.js"));
+const objpath=path.parse("E:/semester-3/Web Technology/03 Node js/01_First/index.js");
+console.log(objpath.name);

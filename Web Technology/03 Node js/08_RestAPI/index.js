@@ -8,6 +8,20 @@ mongoose.connect('mongodb://localhost:27017/Colleges').then(()=>{
     const app = express();
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cors());
+
+    //--------
+    const path = require("path");
+    const staticPath=path.join(__dirname,"../../02 React js/02_Layout/views");
+    console.log(staticPath);
+
+    app.set("view engine", "hbs")
+   
+    app.get('/',(req,res)=>{
+      res.render(`${staticPath}`)
+    })
+    //--------
+   
+
     app.get('/studentname',async (req,res)=>{
        const data=await Student.find();
        res.send(data);
@@ -45,7 +59,8 @@ mongoose.connect('mongodb://localhost:27017/Colleges').then(()=>{
       res.send(data);
      })
 
-    app.listen(3003,()=>{
-        console.log("server started at @ 3003");
+     const portno=3003;
+    app.listen(portno,()=>{
+        console.log(`server started at @ ${portno}`);
     })
 });

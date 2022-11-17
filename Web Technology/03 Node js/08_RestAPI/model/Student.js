@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 const schema = mongoose.Schema({
-    SID:Number,
+    Sid :  {
+        type:String
+    },
     Name : String,
     Age : Number,
     Sem : Number

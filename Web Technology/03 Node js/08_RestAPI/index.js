@@ -3,26 +3,40 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Student = require('./model/Student');
 const bodyParser = require('body-parser');
-const cors = require('cors')
+const cors = require('cors');
+const app = express();
+
+const portno=3003;
+app.listen(portno,()=>{
+   console.log(`server started at @ ${portno}`);
+})
+
+
 mongoose.connect('mongodb://localhost:27017/Colleges').then(()=>{
-    const app = express();
+   
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cors());
 
     //--------
     const path = require("path");
-    const staticPath=path.join(__dirname,"../../02 React js/02_Layout/views");
-    console.log(staticPath);
+    const staticPath=path.join(__dirname,"./build");
+    console.log(staticPath)
+    app.use(express.static(staticPath));
 
-    app.set("view engine", "hbs")
+  
+    
+
+    //------------
+    //const staticPath=path.join(__dirname,"../../02 React js/02_Layout/views");
+   //  app.set("view engine", "hbs")
    
-    app.get('/',(req,res)=>{
-      res.render(`${staticPath}`)
-    })
+   //  app.get('/',(req,res)=>{
+   //    res.render(`${staticPath}`)
+   //  })
     //--------
    
-
-    app.get('/studentname',async (req,res)=>{
+    
+    app.get('/studentname',async (req,res)=>{ 
        const data=await Student.find();
        res.send(data);
     })
@@ -40,7 +54,7 @@ mongoose.connect('mongodb://localhost:27017/Colleges').then(()=>{
      app.post('/studentadd',async (req,res)=>{
         const stu = new Student();
 
-        stu.SID=req.body.SID;
+        stu.Sid=req.body.SID;
         stu.Name=req.body.SN;
         stu.Age=req.body.SA;
         stu.Sem=req.body.SS;
@@ -49,6 +63,7 @@ mongoose.connect('mongodb://localhost:27017/Colleges').then(()=>{
         res.send(data);
      })
 
+     
      app.put('/student/:id',async (req,res)=>{
       const data=await Student.findOne({SID:req.params.id});
       data.Name=req.body.SN;
@@ -59,8 +74,7 @@ mongoose.connect('mongodb://localhost:27017/Colleges').then(()=>{
       res.send(data);
      })
 
-     const portno=3003;
-    app.listen(portno,()=>{
-        console.log(`server started at @ ${portno}`);
-    })
+    
+   
 });
+

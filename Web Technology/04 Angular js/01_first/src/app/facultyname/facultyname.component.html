@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row  ">
+        <div *ngFor="let fac of faculties" class="card col-3 ">
+            <img [src]="fac.FacultyImage" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{fac.FacultyName}}</h5>
+                <p class="card-text">{{fac.FacultyEducationQualification}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>

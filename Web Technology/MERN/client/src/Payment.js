@@ -12,7 +12,7 @@ const Payment = () => {
     e.preventDefault();
     const from = user.phone;
     const { to, balance } = transaction;
-    if (from !== to) {
+    if (from != to) {
       const res = await fetch('/pay', {
         method: "POST",
         headers: {

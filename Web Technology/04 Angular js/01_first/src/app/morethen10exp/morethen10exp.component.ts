@@ -174,4 +174,5 @@ export class Morethen10expComponent {
     return parseInt(splitted[0] )
   }
   
+  formetedFaculties = this.faculties.filter(event =>this.exp(event.FacultyExperience)>= 10)
 }

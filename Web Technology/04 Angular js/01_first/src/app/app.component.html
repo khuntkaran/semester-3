@@ -1,14 +1,4 @@
 <h1>hello world from {{name | uppercase}}</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
-    <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
-    <li><a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">contact</a></li>
-    <li><a routerLink="/facultyname" routerLinkActive="active" ariaCurrentWhenActive="page">All Faculty</a></li>
-    <li><a routerLink="/morethan10exp" routerLinkActive="active" ariaCurrentWhenActive="page">10+ Experience</a></li>
-
-  </ul>
-</nav>
-<hr/>
-<hr/>
+<app-header></app-header>
 <router-outlet></router-outlet>
+<app-footer></app-footer>

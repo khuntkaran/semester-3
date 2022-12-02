@@ -1,0 +1,35 @@
+<form [formGroup]="myForm" (ngSubmit)="insert()">
+    <table >
+        <tr >
+            <td >Name</td>
+            <td >:</td>
+            <td><input type="text" formControlName="name"/></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>:</td>
+            <td><input type="text" formControlName="age"/></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+            <input type="submit" *ngIf="arrindex <0" value="Add user"/>
+            <input type="submit" *ngIf="arrindex >-1" value="Edit user"/>
+            </td>
+        </tr>            
+    </table>
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let fac of users;let i=index">
+        <td>{{fac.name}}</td>
+        <td>{{fac.age}}</td>
+        <td><button (click)="delete(i)" >Delete</button></td>
+        <td><button (click)="update(i)">Edit</button></td>
+    </tr>
+</table>

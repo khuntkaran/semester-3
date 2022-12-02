@@ -1,0 +1,36 @@
+<form [formGroup]="myForm" (ngSubmit)="insert()">
+    <table>
+        <tr>
+            <td>name</td>
+            <td> : </td>
+            <td><input type="text" formControlName ="name"/>
+                <br><span *ngIf="myForm.controls.name.touched && myForm.controls.name.invalid"style="color: red ;">Please Enter Name!</span>
+            </td>
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td> : </td>
+            <td><input type="text" formControlName ="phone" /></td>
+        </tr>
+        <tr>
+            <td>image</td>
+            <td> : </td>
+            <td><input type="text" formControlName ="image"/></td>
+        </tr>
+        <tr>
+            <td>rollno</td>
+            <td> : </td>
+            <td><input type="text" formControlName ="rollno" /></td>
+        </tr>
+        <tr>
+            <td>address</td>
+            <td> : </td>
+            <td><input type="text" formControlName ="address" /></td>
+        </tr>
+        <tr colspan="3">
+            <td>
+                <input type="submit" [value]="btnName" [disabled]="!myForm.valid"/>
+            </td>
+        </tr>
+    </table>
+</form>

@@ -19,6 +19,10 @@ mongoose.connect(process.env.DATABASE)
     app.use(express.urlencoded({extended:false}));
     app.use(cookieParser());
 
+    app.use(express.static("../client/build"));
+    app.use('/login',express.static("../client/build"));
+    app.use('/register',express.static("../client/build"));
+    app.use('/login/*',express.static("../client/build"));
 
     app.get('/authenticate',authenticate,(req,res)=>{
         res.status(200).send(req.rootUser);

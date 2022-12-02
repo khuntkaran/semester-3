@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row  ">
+        <div *ngFor="let stu of data" class="card col-3 ">
+            <img [src]="stu.image" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Name : {{stu.name}}</h5>
+                <p class="card-text">Roll No : {{stu.rollno}}</p>
+                <p class="card-text">Address : {{stu.address}}</p>
+                <div class="row justify-content-between">
+                    <div class="col-4">
+                        <a class="btn btn-primary ms-auto" routerLink="/student/{{stu.id}}">More...</a>
+                    </div>
+                    <div class="col-4">
+                        <a class="btn btn-danger" (click)="delete(stu.id)">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

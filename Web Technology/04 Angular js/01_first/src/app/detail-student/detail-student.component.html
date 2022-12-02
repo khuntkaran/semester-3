@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <table border="2" class="table ">
+                <tbody>
+                    <tr>
+                        <td><img [src]="data.image" /></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td>:</td>
+                        <td>{{data.name}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Phone</th>
+                        <td>:</td>
+                        <td>{{data.phone}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Roll No</th>
+                        <td>:</td>
+                        <td>{{data.rollno}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">address</th>
+                        <td>:</td>
+                        <td>{{data.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <button class="btn btn-primary" routerLink="/students">back</button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-warning" routerLink="/student/edit/{{data.id}}">Edit</button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-danger ms-2" (click)="deleteStudent()" >Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

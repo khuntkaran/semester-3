@@ -36,7 +36,7 @@ const History = ()=>{
   const formtedhistory = user.reverse().map((fac)=>{
 
     const date = new Date(fac.date);
-    const datemodified =date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear();
+    const datemodified =date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
     const timemodified = date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
 
     return(
